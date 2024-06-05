@@ -76,7 +76,8 @@ if mode == 1:
     # - - - NAUKA - - -
 
     data_list_train = prepare_data("data/data.csv")
-    train, test = np.split(data_list_train.sample(frac=1), [int((2/3) * len(data_list_train))])
+    train, valid, test = np.split(data_list_train.sample(frac=1), [int(0.6 * len(data_list_train)),
+                                                                   int(0.8 * len(data_list_train))])
     test.to_csv("data/test.csv", index=False, header=False)
 
     if want_random == 1:
@@ -110,14 +111,10 @@ elif mode == 2:
     y_pred = nn_model.predict(x_test)
     y_pred_bin = prepare_type_list(y_pred)
 
-    report = classification_report(y_test, y_pred_bin)
-    conf_matrix = confusion_matrix(y_test, y_pred_bin)
-
     global_error = calculate_global_error(y_test, y_pred_bin)
     individual_error_list, individual_correct_list, correct = calculate_individual_error(y_test, y_pred_bin, types_list)
     weights_list = get_all_weights(nn_model)
 
     file1 = "data_files/testing_logs.log"
     file2 = "data_files/testing_results.log"
-    test_logs(global_error, individual_error_list, weights_list, report, conf_matrix, file1)
     result_logs(y_test, y_pred_bin, individual_correct_list, correct, file2)

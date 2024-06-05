@@ -23,7 +23,7 @@ def int_input():
 def neuron_list_input(layer_number, neuron_number_list):
     correct_value = True
     for i in range(layer_number):
-        print("Podaj liczbe neuronow w warstwie ", i)
+        print("Podaj liczbe neuronow w warstwie ", i+1)
         while correct_value:
             try:
                 neuron_number1 = int(input("Liczba neuronoów: "))
