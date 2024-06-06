@@ -4,19 +4,21 @@ import matplotlib.pyplot as plt
 import network
 
 
-def prepare_data(array):
-    array = np.array(array)
+def prepare_data(data):
+    data = np.array(data)
     target_values = []
-    for genre in array:
+    for genre in data:
         if genre[-1] == 0:
             target_values.append([1, 0, 0])
         elif genre[-1] == 1:
             target_values.append([0, 1, 0])
         elif genre[-1] == 2:
             target_values.append([0, 0, 1])
-    x_array = array[:, :-1]
+    x_array = data[:, :-1]
     target_values = np.array(target_values)
-    combined_data = [(x.reshape(-1, 1), y.reshape(-1, 1)) for x, y in zip(x_array, target_values)]
+    combined_data = []
+    for x, y in zip(x_array, target_values):
+        combined_data.append((x.reshape(-1, 1), y.reshape(-1, 1)))
     return combined_data
 
 

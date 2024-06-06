@@ -30,13 +30,3 @@ def float_input(message):
             print("Sprobuj jeszcze raz. Podaj liczbe zmiennoprzecinkowa.")
     return variable
 
-
-def one_two_three_input():
-    correct_value = True
-    while correct_value:
-        variable = int(input("Podaj 1, 2 lub 3: "))
-        correct_value = False
-        if variable not in [1, 2, 3]:
-            print("Niepoprawny wybor, sprobuj jeszcze raz.")
-            correct_value = True
-    return variable
