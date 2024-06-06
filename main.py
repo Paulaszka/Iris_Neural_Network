@@ -1,14 +1,6 @@
-import network
 from main_handler import *
-import numpy as np
-import pandas as pd
-import warnings
-import logging
+from functions import *
 
-
-pd.set_option('future.no_silent_downcasting', True)
-warnings.filterwarnings("ignore")
-logging.disable(logging.WARNING)
 
 early_stopping_error = early_stopping_epoch = 0
 neuron_number_list = []
@@ -19,6 +11,24 @@ print("Wybierz zestaw danych\n"
       "1 - irysy\n"
       "2 - autoenkoder")
 data_set = one_two_input()
+
+if data_set == 1:
+    train = pd.read_csv('data/data.csv', header=None)
+    test = pd.read_csv('data/test.csv', header=None)
+    combined_train_data = prepare_data(train)
+    combined_test_data = prepare_data(test)
+    valid = random.choices(combined_train_data, k=int(len(combined_train_data) / 3))
+    random.shuffle(valid)
+
+
+if data_set == 2:
+    x_array = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+    y_array = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+
+    combined_data = [(x.reshape(-1, 1), y.reshape(-1, 1)) for x, y in zip(x_array, y_array)]
+    combined_test_data = combined_data
+    combined_train_data = combined_data
+    validation_data = combined_data
 
 print("Wybierz tryb\n"
       "1 - tryb nauki\n"
@@ -37,11 +47,12 @@ if mode == 1:
         # nn_model = keras.saving.load_model("data_files/nn_model.h5")
 
     elif data_mode == 2:
-        nn_model = None
         layer_number = int_input("\nOkresl liczbe warstw ukrytych w sieci neuronowej.")
-        neuron_number_list = neuron_list_input(layer_number, neuron_number_list)
-        neuron_number_list.append()
-# TODO tutaj trzeba dodac jedna warstwe na koniec listy i dac przygotowanie danych na gore
+        neuron_number_list = [len(combined_train_data[0][0])]
+        for i in range(layer_number):
+            neuron_number_list.append(int(input("Podaj liczbe neuronow w " + str(i + 1) + " warstwie ukrytej: ")))
+
+        neuron_number_list.append(len(combined_train_data[0][1]))
 
     print("\nWybierz warunek stopu (czas zakonczenia nauki).\n"
           "1 - ilosc epok\n"
@@ -49,12 +60,12 @@ if mode == 1:
     stop_type = one_two_input()
 
     early_stopping_epoch = 1000
-    early_stopping_error = 0  # TODO sprawdzic czy ten blad jest okej
+    early_stopping_error = 1.1  # TODO sprawdzic czy ten blad jest okej
 
     if stop_type == 1:
         early_stopping_epoch = int_input("\nPodaj liczbe epok: ")
     elif stop_type == 2:
-        early_stopping_error = float_input("\nPodaj pozadana poziom bledu: ")
+        early_stopping_error = float_input("\nPodaj pozadany poziom bledu: ")
 
     bias = int_input("\nPodaj wartość wejścia obciążającego (bias): ")
 
@@ -73,25 +84,9 @@ if mode == 1:
 
     # - - - NAUKA - - -
 
-    if data_set == 1:
-        data_list_train = pd.read_csv("data/data.csv")
-        train, valid, test = np.split(data_list_train.sample(frac=1), [int(0.6 * len(data_list_train)),
-                                                                       int(0.8 * len(data_list_train))])
-        test.to_csv("data/test.csv", index=False, header=False)
-
-    if data_set == 2:
-        x_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-        y_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-
-        xy_data = []
-        for x, y in zip(x_data, y_data):
-            xy_data.append((x.reshape(-1, 1), y.reshape(-1, 1)))  # zmieniamy je na pionowe
-
-        test = train = valid = xy_data  # dane testowe, treningowe i walidacyjne sa takie same
-
     net = network.Network(neuron_number_list, useBias=(False if bias == 0 else True))
 
-    net.train(train, epochs=early_stopping_epoch, precision=early_stopping_error, batch_size=10,
+    net.train(combined_train_data, epochs=early_stopping_epoch, precision=early_stopping_error, batch_size=10,
               learning_rate=learning_rate, momentum=momentum, shuffle=want_random, error_epoch=hops,
               validation_data=valid, debug=True)
 
