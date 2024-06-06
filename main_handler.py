@@ -9,14 +9,14 @@ def one_two_input():
     return variable
 
 
-def int_input():
+def int_input(message):
     correct_value = True
     while correct_value:
         try:
-            variable = int(input("Podaj liczbe calkowita: "))
+            variable = int(input(message))
             correct_value = False
         except ValueError:
-            print("Niepoprawny wybor, sprobuj jeszcze raz.")
+            print("Sprobuj jeszcze raz. Podaj liczbe calkowita.")
     return variable
 
 
@@ -35,14 +35,14 @@ def neuron_list_input(layer_number, neuron_number_list):
     return neuron_number_list
 
 
-def float_input():
+def float_input(message):
     correct_value = True
     while correct_value:
         try:
-            variable = float(input("Podaj liczbe zmiennoprzecinkowa: "))
+            variable = float(input(message))
             correct_value = False
         except ValueError:
-            print("Niepoprawny wybor, sprobuj jeszcze raz.")
+            print("Sprobuj jeszcze raz. Podaj liczbe zmiennoprzecinkowa.")
     return variable
 
 

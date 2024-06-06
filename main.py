@@ -1,4 +1,4 @@
-from functions import *
+import network
 from main_handler import *
 import numpy as np
 import pandas as pd
@@ -13,7 +13,12 @@ logging.disable(logging.WARNING)
 early_stopping_error = early_stopping_epoch = 0
 neuron_number_list = []
 
-# - - - WYBOR TRYBU - - -
+# - - - WYBOR ZBIORU DANYCH ORAZ TRYBU - - -
+
+print("Wybierz zestaw danych\n"
+      "1 - irysy\n"
+      "2 - autoenkoder")
+data_set = one_two_input()
 
 print("Wybierz tryb\n"
       "1 - tryb nauki\n"
@@ -28,45 +33,38 @@ if mode == 1:
           "2 - Podanie parametrow w konsoli.")
     data_mode = one_two_input()
     if data_mode == 1:
-        nn_model = keras.saving.load_model("data_files/nn_model.h5")
+        c = 2
+        # nn_model = keras.saving.load_model("data_files/nn_model.h5")
 
     elif data_mode == 2:
         nn_model = None
-        print("\nOkresl liczbe warstw w sieci neuronowej.")
-        layer_number = int_input()
+        layer_number = int_input("\nOkresl liczbe warstw ukrytych w sieci neuronowej.")
         neuron_number_list = neuron_list_input(layer_number, neuron_number_list)
+        neuron_number_list.append()
+# TODO tutaj trzeba dodac jedna warstwe na koniec listy i dac przygotowanie danych na gore
 
     print("\nWybierz warunek stopu (czas zakonczenia nauki).\n"
           "1 - ilosc epok\n"
           "2 - poziom bledu")
     stop_type = one_two_input()
 
-    print("\nPodaj wartosc parametru.")
+    early_stopping_epoch = 1000
+    early_stopping_error = 0  # TODO sprawdzic czy ten blad jest okej
+
     if stop_type == 1:
-        early_stopping_epoch = int_input()
+        early_stopping_epoch = int_input("\nPodaj liczbe epok: ")
     elif stop_type == 2:
-        early_stopping_error = float_input()
+        early_stopping_error = float_input("\nPodaj pozadana poziom bledu: ")
 
-    print("\nCzy chcesz uwzględniać wartość wejścia obciążającego (bias)?\n"
-          "1 - tak\n"
-          "2 - nie")
-    want_bias = one_two_input()
+    bias = int_input("\nPodaj wartość wejścia obciążającego (bias): ")
 
-    print("\nPodaj wartosc wspolczynnika nauki.")
-    learning_rate = float_input()
+    learning_rate = 1
+    momentum = 1
+    while not (0 <= learning_rate < 1 and 0 <= momentum < 1):
+        learning_rate = float_input("\nPodaj wartosc wspolczynnika nauki: ")
+        momentum = float_input("\nPodaj wartosc wspolczynnika momentum: ")
 
-    print("\nPodaj wartosc wspolczynnika momentum.")
-    momentum = float_input()
-
-    print("\nCzy chcesz podac wartosc czestotliwosci (skok epok) zapisywania wartosci globalnego bledu do pliku?\n"
-          "(Domyslna wartosc - 10)\n"
-          "1 - tak\n"
-          "2 - nie")
-    want_hops = one_two_input()
-    if want_hops == 1:
-        hops = int_input()
-    if want_hops == 2:
-        hops = 10
+    hops = int_input("\nPodaj wartosc czestotliwosci (skok epok) zapisywania do pliku: ")
 
     print("\nCzy chcesz prezentowac wzorce treningowe w losowej kolejnosci?\n"
           "1 - tak\n"
@@ -75,46 +73,32 @@ if mode == 1:
 
     # - - - NAUKA - - -
 
-    data_list_train = prepare_data("data/data.csv")
-    train, valid, test = np.split(data_list_train.sample(frac=1), [int(0.6 * len(data_list_train)),
-                                                                   int(0.8 * len(data_list_train))])
-    test.to_csv("data/test.csv", index=False, header=False)
+    if data_set == 1:
+        data_list_train = pd.read_csv("data/data.csv")
+        train, valid, test = np.split(data_list_train.sample(frac=1), [int(0.6 * len(data_list_train)),
+                                                                       int(0.8 * len(data_list_train))])
+        test.to_csv("data/test.csv", index=False, header=False)
 
-    if want_random == 1:
-        train = train.sample(frac=1)
+    if data_set == 2:
+        x_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+        y_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
 
-    train, x_train, y_train = oversample_set(train, True)
-    y_train_encoded = to_categorical(y_train, neuron_number_list[-1])
+        xy_data = []
+        for x, y in zip(x_data, y_data):
+            xy_data.append((x.reshape(-1, 1), y.reshape(-1, 1)))  # zmieniamy je na pionowe
 
+        test = train = valid = xy_data  # dane testowe, treningowe i walidacyjne sa takie same
 
+    net = network.Network(neuron_number_list, useBias=(False if bias == 0 else True))
 
+    net.train(train, epochs=early_stopping_epoch, precision=early_stopping_error, batch_size=10,
+              learning_rate=learning_rate, momentum=momentum, shuffle=want_random, error_epoch=hops,
+              validation_data=valid, debug=True)
 
-    nn_model.save("data/nn_model.pkl")
 
 # - - - TRYB TESTOWANIA - - -
 
 elif mode == 2:
     data_list_test = pd.read_csv("data/test.csv")
 
-    x_test = data_list_test[data_list_test.columns[1:]].values
-    y_test = data_list_test[data_list_test.columns[0]].values
 
-    types_list = []
-    for i in y_test:
-        if i not in types_list:
-            types_list.append(i)
-
-    types_list.sort()
-
-    nn_model = keras.saving.load_model("data_files/nn_model.h5")
-
-    y_pred = nn_model.predict(x_test)
-    y_pred_bin = prepare_type_list(y_pred)
-
-    global_error = calculate_global_error(y_test, y_pred_bin)
-    individual_error_list, individual_correct_list, correct = calculate_individual_error(y_test, y_pred_bin, types_list)
-    weights_list = get_all_weights(nn_model)
-
-    file1 = "data_files/testing_logs.log"
-    file2 = "data_files/testing_results.log"
-    result_logs(y_test, y_pred_bin, individual_correct_list, correct, file2)

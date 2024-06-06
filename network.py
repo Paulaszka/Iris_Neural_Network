@@ -1,7 +1,5 @@
 import random
-import numpy as np
 import pickle
-import time
 from matplotlib import pyplot as plt
 from sigmoid import *
 
@@ -141,9 +139,9 @@ class Network(object):
         for layer in range(2, self.num_layers):
             weighted_neuron = weighted_layer[-layer]
             sigmoid_prime = sigmoid_derivative(weighted_neuron)
-            delta = np.dot(self.weights[-layer + 1].transpose(), delta) * sigmoid_prime # blad dla aktualnej warstwy, +1 następna warstwa
+            delta = np.dot(self.weights[-layer + 1].transpose(), delta) * sigmoid_prime  # blad dla aktualnej warstwy, +1 następna warstwa
             gradient_b[-layer] = delta
-            gradient_w[-layer] = np.dot(delta, activations[-layer - 1].transpose()) # -1 poprzednia warstwa
+            gradient_w[-layer] = np.dot(delta, activations[-layer - 1].transpose())  # -1 poprzednia warstwa
         return gradient_b, gradient_w
 
     def epoch_error(self, train_data):
