@@ -1,18 +1,7 @@
 import numpy as np
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
-import pandas as pd
-import random
 import network
-
-
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-
-def sigmoid_derivative(x):
-    f = sigmoid(x)
-    return f * (1 - f)
 
 
 def prepare_data(array):
@@ -48,44 +37,44 @@ def simulate(layers, train, valid, test):
     epochs = 1000
     error = 1.0
     sim_net = network.Network(layers, useBias=(False if bias == 0 else True))
-    sim_net.train(train, epochs, error, 10,0.9, 0.0, 1, 10, valid)
+    sim_net.train(train, epochs, error, 10, 0.9, 0.0, 1, 10, valid)
     sim_net.plot_training_error()
     confusion(sim_net, test)
 
     sim_net = network.Network(layers, useBias=(False if bias == 0 else True))
-    sim_net.train(train, epochs, error, 10,0.6, 0.0, 1, 10, valid)
+    sim_net.train(train, epochs, error, 10, 0.6, 0.0, 1, 10, valid)
     sim_net.plot_training_error()
     confusion(sim_net, test)
 
     sim_net = network.Network(layers, useBias=(False if bias == 0 else True))
-    sim_net.train(train, epochs, error, 10,0.2, 0.0, 1, 10, valid)
+    sim_net.train(train, epochs, error, 10, 0.2, 0.0, 1, 10, valid)
     sim_net.plot_training_error()
     confusion(sim_net, test)
 
     sim_net = network.Network(layers, useBias=(False if bias == 0 else True))
-    sim_net.train(train, epochs, error, 10,0.9, 0.6, 1, 10, valid)
+    sim_net.train(train, epochs, error, 10, 0.9, 0.6, 1, 10, valid)
     sim_net.plot_training_error()
     confusion(sim_net, test)
 
     sim_net = network.Network(layers, useBias=(False if bias == 0 else True))
-    sim_net.train(train, epochs, error, 10,0.2, 0.9, 1, 10, valid)
+    sim_net.train(train, epochs, error, 10, 0.2, 0.9, 1, 10, valid)
     sim_net.plot_training_error()
     confusion(sim_net, test)
 
 
-def confusion(network, test):
+def confusion(network1, test):
     predicted_labels = []
     true_labels = []
-    logs = "Wagi:\n" + str(network.weights)
-    logs += "\n\nWejscia obciazajece:\n" + str(network.biases)
+    logs = "Wagi:\n" + str(network1.weights)
+    logs += "\n\nWejscia obciazajece:\n" + str(network1.biases)
     general_error = 0.0
     for index in range(len(test)):
         test_row = test[index]
-        output = network.feedforward(test_row[0])
+        output = network1.feedforward(test_row[0])
         expected = test_row[1]
         true_labels.append(np.argmax(expected))
         predicted_labels.append(np.argmax(output))
-        error = network.calculate_error(expected, output)
+        error = network1.calculate_error(expected, output)
         general_error += error
         logs += "Wzorzec wejsciowy:\n" + str(test_row[0]) + "\n"
         logs += "Wzorzec wyjsciowy:\n" + str(expected) + "\n"
@@ -127,5 +116,3 @@ def confusion(network, test):
     print("\nPrecyzja (Precision):", precision)
     print("Czułość (Recall):", recall)
     print("Miara F (F-measure):", f_measure)
-
-

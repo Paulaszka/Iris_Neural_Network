@@ -1,9 +1,8 @@
 from main_handler import *
 from functions import *
+import random
+import pandas as pd
 
-
-early_stopping_error = early_stopping_epoch = 0
-neuron_number_list = []
 
 # - - - WYBOR ZBIORU DANYCH ORAZ TRYBU - - -
 
@@ -13,22 +12,22 @@ print("Wybierz zestaw danych\n"
 data_set = one_two_input()
 
 if data_set == 1:
-    train = pd.read_csv('data/data.csv', header=None)
-    test = pd.read_csv('data/test.csv', header=None)
-    combined_train_data = prepare_data(train)
-    combined_test_data = prepare_data(test)
-    valid = random.choices(combined_train_data, k=int(len(combined_train_data) / 3))
+    train_raw = pd.read_csv('data/data.csv', header=None)
+    test_raw = pd.read_csv('data/test.csv', header=None)
+    train_data = prepare_data(train_raw)
+    test_data = prepare_data(test_raw)
+    valid = random.choices(train_data, k=int(len(train_data) / 3))
     random.shuffle(valid)
 
-
 if data_set == 2:
-    x_array = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-    y_array = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-
-    combined_data = [(x.reshape(-1, 1), y.reshape(-1, 1)) for x, y in zip(x_array, y_array)]
-    combined_test_data = combined_data
-    combined_train_data = combined_data
-    validation_data = combined_data
+    x_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+    y_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+    xy_data = []
+    for x, y in zip(x_data, y_data):
+        xy_data.append((x.reshape(-1, 1), y.reshape(-1, 1)))
+    test_data = xy_data
+    train_data = xy_data
+    validation_data = xy_data
 
 print("Wybierz tryb\n"
       "1 - tryb nauki\n"
@@ -43,16 +42,14 @@ if mode == 1:
           "2 - Podanie parametrow w konsoli.")
     data_mode = one_two_input()
     if data_mode == 1:
-        c = 2
-        # nn_model = keras.saving.load_model("data_files/nn_model.h5")
+        net = network.Network.load("data/network.pkl")  # TODO sprawdzic czy wczytywanie dziala
 
     elif data_mode == 2:
         layer_number = int_input("\nOkresl liczbe warstw ukrytych w sieci neuronowej.")
-        neuron_number_list = [len(combined_train_data[0][0])]
+        neuron_number_list = [len(train_data[0][0])]
         for i in range(layer_number):
             neuron_number_list.append(int(input("Podaj liczbe neuronow w " + str(i + 1) + " warstwie ukrytej: ")))
-
-        neuron_number_list.append(len(combined_train_data[0][1]))
+        neuron_number_list.append(len(train_data[0][1]))
 
     print("\nWybierz warunek stopu (czas zakonczenia nauki).\n"
           "1 - ilosc epok\n"
@@ -60,7 +57,7 @@ if mode == 1:
     stop_type = one_two_input()
 
     early_stopping_epoch = 1000
-    early_stopping_error = 1.1  # TODO sprawdzic czy ten blad jest okej
+    early_stopping_error = 1.0  # TODO sprawdzic czy ten blad jest okej
 
     if stop_type == 1:
         early_stopping_epoch = int_input("\nPodaj liczbe epok: ")
@@ -69,9 +66,9 @@ if mode == 1:
 
     bias = int_input("\nPodaj wartość wejścia obciążającego (bias): ")
 
-    learning_rate = 1
-    momentum = 1
-    while not (0 <= learning_rate < 1 and 0 <= momentum < 1):
+    learning_rate = -1
+    momentum = -1
+    while learning_rate < 0 and momentum < 0:
         learning_rate = float_input("\nPodaj wartosc wspolczynnika nauki: ")
         momentum = float_input("\nPodaj wartosc wspolczynnika momentum: ")
 
@@ -86,7 +83,7 @@ if mode == 1:
 
     net = network.Network(neuron_number_list, useBias=(False if bias == 0 else True))
 
-    net.train(combined_train_data, epochs=early_stopping_epoch, precision=early_stopping_error, batch_size=10,
+    net.train(train_data, epochs=early_stopping_epoch, precision=early_stopping_error, batch_size=10,
               learning_rate=learning_rate, momentum=momentum, shuffle=want_random, error_epoch=hops,
               validation_data=valid, debug=True)
 
@@ -95,5 +92,8 @@ if mode == 1:
 
 elif mode == 2:
     data_list_test = pd.read_csv("data/test.csv")
+    net = network.Network.load("data/network.pkl")
 
-
+    combined_test_data = 1  # TODO testowanie
+    net.plot_training_error()
+    confusion(net, combined_test_data)

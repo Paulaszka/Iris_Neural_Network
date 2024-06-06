@@ -1,7 +1,15 @@
-import random
 import pickle
-from matplotlib import pyplot as plt
-from sigmoid import *
+from functions import *
+import random
+
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+
+def sigmoid_derivative(x):
+    f = sigmoid(x)
+    return f * (1 - f)
 
 
 class Network(object):
@@ -10,13 +18,21 @@ class Network(object):
         self.sizes = layer_sizes
         self.useBias = useBias
         if useBias:
-            self.biases = [np.random.uniform(-1, 1, (y, 1)) for y in layer_sizes[1:]]
+            self.biases = []
+            for y in layer_sizes[1:]:
+                self.biases.append(np.random.uniform(-1, 1, (y, 1)))
         else:
-            self.biases = [np.zeros((y, 1)) for y in layer_sizes[1:]]
-        self.weights = [np.random.uniform(-1, 1, (y, x)) for x, y in zip(layer_sizes[:-1], layer_sizes[1:])]
-        self.velocity = [np.zeros(w.shape) for w in self.weights]
-        # print(self.weights)
-        # print(self.biases)
+            self.biases = []
+            for y in layer_sizes[1:]:
+                self.biases.append(np.zeros((y, 1)))
+
+        self.weights = []
+        for x, y in zip(layer_sizes[:-1], layer_sizes[1:]):
+            self.weights.append(np.random.uniform(-1, 1, (y, x)))
+
+        self.velocity = []
+        for w in self.weights:
+            self.velocity.append(np.zeros(w.shape))
 
     def plot_training_error(self):
         with open('trainError.csv', 'r') as file:
