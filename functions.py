@@ -38,27 +38,27 @@ def simulate(layers, train, valid, test):
     bias = False
     epochs = 1000
     error = 1.0
-    sim_net = network.Network(layers, useBias=(False if bias == 0 else True))
+    sim_net = network.Network(layers, want_bias=(False if bias == 0 else True))
     sim_net.train(train, epochs, error, 10, 0.9, 0.0, 1, 10, valid)
     sim_net.plot_training_error()
     confusion(sim_net, test)
 
-    sim_net = network.Network(layers, useBias=(False if bias == 0 else True))
+    sim_net = network.Network(layers, want_bias=(False if bias == 0 else True))
     sim_net.train(train, epochs, error, 10, 0.6, 0.0, 1, 10, valid)
     sim_net.plot_training_error()
     confusion(sim_net, test)
 
-    sim_net = network.Network(layers, useBias=(False if bias == 0 else True))
+    sim_net = network.Network(layers, want_bias=(False if bias == 0 else True))
     sim_net.train(train, epochs, error, 10, 0.2, 0.0, 1, 10, valid)
     sim_net.plot_training_error()
     confusion(sim_net, test)
 
-    sim_net = network.Network(layers, useBias=(False if bias == 0 else True))
+    sim_net = network.Network(layers, want_bias=(False if bias == 0 else True))
     sim_net.train(train, epochs, error, 10, 0.9, 0.6, 1, 10, valid)
     sim_net.plot_training_error()
     confusion(sim_net, test)
 
-    sim_net = network.Network(layers, useBias=(False if bias == 0 else True))
+    sim_net = network.Network(layers, want_bias=(False if bias == 0 else True))
     sim_net.train(train, epochs, error, 10, 0.2, 0.9, 1, 10, valid)
     sim_net.plot_training_error()
     confusion(sim_net, test)
@@ -120,8 +120,9 @@ def confusion(network1, test):
     print("Miara F (F-measure):", f_measure)
 
 def test_logs(network, test, result):
-    indiv_correct, correct = calculate_correct(test, result)
+    indiv_correct, correct = calculate_to_logs(test, result)
     global_error = 0
+    error = 0
     with open("data/test_logs.txt", 'a') as plik:
         plik.write("WARTOSCI Z CZESCI TESTOWEJ\n")
         plik.write("POROWNANIE WYNIKOW\nLiczba poprawnie sklasyfikowanych elementow:\n\n")
@@ -134,11 +135,12 @@ def test_logs(network, test, result):
             plik.write(f"{test} - {pred}\n")
         plik.write("\nWagi: " + str(network.weights))
         for i in range(len(test)):
-            error = calculate_correct(test, result)
-            global_error += error
+            # error = calculate_error(test, result)
+            # global_error += error
+            error+=1
         plik.write("\nBlad dla calej sieci: " + str(global_error))
 
-def calculate_correct(y_test, y_pred):
+def calculate_to_logs(y_test, y_pred):
     types_list = []
     for i in y_test:
         if i not in types_list:

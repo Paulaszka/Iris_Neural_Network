@@ -44,9 +44,9 @@ class MyTestCase(unittest.TestCase):
         want_random = 1
         hops = 10
 
-        net = network.Network(neuron_number_list, useBias=(False if bias == 0 else True))
+        net = network.Network(neuron_number_list, want_bias=(False if bias == 0 else True))
 
         net.train(train_data, epochs=early_stopping_epoch, precision=early_stopping_error, batch_size=10,
-                  learning_rate=learning_rate, momentum=momentum, shuffle=want_random, error_epoch=hops,
+                  learning_rate=learning_rate, momentum=momentum, shuffle=want_random, hops=hops,
                   validation_data=valid, debug=True)
         confusion(net, test_data)
