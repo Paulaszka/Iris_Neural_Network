@@ -42,7 +42,7 @@ if mode == 1:
           "2 - Podanie parametrow w konsoli.")
     data_mode = one_two_input()
     if data_mode == 1:
-        net = network.Network.load("data/network.pkl")  # TODO sprawdzic czy wczytywanie dziala
+        net = network.Network.load_network("data/network.pkl")  # TODO sprawdzic czy wczytywanie dziala
 
     elif data_mode == 2:
         layer_number = int_input("\nOkresl liczbe warstw ukrytych w sieci neuronowej.")
@@ -92,7 +92,7 @@ if mode == 1:
 
 elif mode == 2:
     data_list_test = pd.read_csv("data/test.csv")
-    net = network.Network.load("data/network.pkl")
+    net = network.Network.load_network("data/network.pkl")
 
     combined_test_data = 1  # TODO testowanie
     net.plot_training_error()

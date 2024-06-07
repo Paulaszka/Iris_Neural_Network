@@ -145,7 +145,7 @@ class Network(object):
         activations = [x]
         weighted_layer = []
         for b, w in zip(self.biases, self.weights):
-            weighted_neuron = np.dot(w, activation) + b  # w to jeden wiersz w macierzy wag (wagi dla 1 warstwy)
+            weighted_neuron = np.dot(w, activation) + b
             weighted_layer.append(weighted_neuron)
             activation = sigmoid(weighted_neuron)
             activations.append(activation)
@@ -154,10 +154,9 @@ class Network(object):
         weight_gradient[-1] = np.dot(delta, activations[-2].transpose())
         for layer in range(2, self.num_layers):
             weighted_neuron = weighted_layer[-layer]
-            sigmoid_prime = sigmoid_derivative(weighted_neuron)
-            delta = np.dot(self.weights[-layer + 1].transpose(), delta) * sigmoid_prime  # blad dla aktualnej warstwy, +1 następna warstwa
+            delta = np.dot(self.weights[-layer + 1].transpose(), delta) * sigmoid_derivative(weighted_neuron)
             bias_gradient[-layer] = delta
-            weight_gradient[-layer] = np.dot(delta, activations[-layer - 1].transpose())  # -1 poprzednia warstwa
+            weight_gradient[-layer] = np.dot(delta, activations[-layer - 1].transpose())
         return bias_gradient, weight_gradient
 
     def epoch_error(self, train_data):
@@ -167,17 +166,17 @@ class Network(object):
         return error / len(train_data)
 
     @staticmethod
-    def cost_derivative(output_activations, y):
-        return output_activations - y
+    def cost_derivative(output_activations, expected_output):
+        return output_activations - expected_output
 
-    def save(self, filename):
-        with open(filename, "wb") as f:
-            pickle.dump(self, f)
+    def save_network(self, filename):
+        with open(filename, "wb") as file:
+            pickle.dump(self, file)
 
     @staticmethod
-    def load(filename):
-        with open(filename, "rb") as f:
-            return pickle.load(f)
+    def load_network(filename):
+        with open(filename, "rb") as file:
+            return pickle.load(file)
 
     @staticmethod
     def calculate_error(expected, output):
