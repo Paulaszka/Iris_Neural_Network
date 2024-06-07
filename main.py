@@ -27,7 +27,7 @@ if data_set == 2:
         xy_data.append((x.reshape(-1, 1), y.reshape(-1, 1)))
     test_data = xy_data
     train_data = xy_data
-    validation_data = xy_data
+    valid = xy_data
 
 print("Wybierz tryb\n"
       "1 - tryb nauki\n"

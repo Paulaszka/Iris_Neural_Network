@@ -118,3 +118,41 @@ def confusion(network1, test):
     print("\nPrecyzja (Precision):", precision)
     print("Czułość (Recall):", recall)
     print("Miara F (F-measure):", f_measure)
+
+def test_logs(network, test, result):
+    indiv_correct, correct = calculate_correct(test, result)
+    global_error = 0
+    with open("data/test_logs.txt", 'a') as plik:
+        plik.write("WARTOSCI Z CZESCI TESTOWEJ\n")
+        plik.write("POROWNANIE WYNIKOW\nLiczba poprawnie sklasyfikowanych elementow:\n\n")
+        plik.write(str(correct))
+        plik.write("Z podzialem na klasy:\n")
+        for element in indiv_correct:
+            plik.write(f"{element}\n")
+        plik.write("Wyniki testowe - Wyniki przewidywane\n")
+        for test, pred in zip(test, result):
+            plik.write(f"{test} - {pred}\n")
+        plik.write("\nWagi: " + str(network.weights))
+        for i in range(len(test)):
+            error = calculate_correct(test, result)
+            global_error += error
+        plik.write("\nBlad dla calej sieci: " + str(global_error))
+
+def calculate_correct(y_test, y_pred):
+    types_list = []
+    for i in y_test:
+        if i not in types_list:
+            types_list.append(i)
+    types_list.sort()
+    individual_correct_list = [0] * len(types_list)
+    correct = 0
+
+    for i in range(len(y_test)):
+        for j in range(len(types_list)):
+            if y_test[i] == y_pred[i] and y_test[i] == types_list[j]:
+                individual_correct_list[j] += 1
+
+    for i in range(len(individual_correct_list)):
+        correct += individual_correct_list[i]
+
+    return individual_correct_list, correct

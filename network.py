@@ -168,7 +168,7 @@ class Network(object):
 
     @staticmethod
     def cost_derivative(output_activations, y):
-        return output_activations - y
+        return output_activations - y  # wynik na ostatniej warstwie - oczekiwany wynik
 
     def save(self, filename):
         with open(filename, "wb") as f:
