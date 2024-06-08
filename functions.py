@@ -119,8 +119,15 @@ def confusion(network1, test):
     print("Czułość (Recall):", recall)
     print("Miara F (F-measure):", f_measure)
 
+
 def test_logs(network, test, result):
-    indiv_correct, correct = calculate_to_logs(test, result)
+    types_list = []
+    for i in test:
+        if all(not np.array_equal(i, existing) for existing in types_list):
+            types_list.append(i)
+    print(types_list)
+
+    indiv_correct, correct, confusion_matrix, precision, recall, f_measure = calculate_to_logs(test, result, types_list)
     global_error = 0
     error = 0
     with open("data/test_logs.txt", 'a') as plik:
@@ -137,18 +144,25 @@ def test_logs(network, test, result):
         for i in range(len(test)):
             # error = calculate_error(test, result)
             # global_error += error
-            error+=1
+            error += 1
         plik.write("\nBlad dla calej sieci: " + str(global_error))
+        plik.write("\nMacierz pomylek: \n")
 
-def calculate_to_logs(y_test, y_pred):
-    types_list = []
-    for i in y_test:
-        if i not in types_list:
-            types_list.append(i)
-    types_list.sort()
+        for i in range(len(confusion_matrix)):
+            if i == 2 or i == 5 or i == 8:
+                plik.write(f"{confusion_matrix[i]} \n")
+            else:
+                plik.write(f"{confusion_matrix[i]} ")
+
+        for i in range(len(test)):
+            plik.write(f"\n Klasa {i}: Precision: {precision[i]} Recall: {recall[i]} F-measure: {f_measure[i]}")
+
+
+def calculate_to_logs(y_test, y_pred, types_list):
+    print(y_test)
+    print(y_pred)
     individual_correct_list = [0] * len(types_list)
     correct = 0
-
     for i in range(len(y_test)):
         for j in range(len(types_list)):
             if y_test[i] == y_pred[i] and y_test[i] == types_list[j]:
@@ -157,4 +171,21 @@ def calculate_to_logs(y_test, y_pred):
     for i in range(len(individual_correct_list)):
         correct += individual_correct_list[i]
 
-    return individual_correct_list, correct
+    confusion_matrix = [[0 for _ in range(len(types_list))] for i in range(len(types_list))]
+    for t, r in zip(y_test, y_pred):
+        confusion_matrix[t][r] += 1
+    precision = [0] * len(types_list)
+    recall = [0] * len(types_list)
+    f_measure = [0] * len(types_list)
+
+    for i in range(len(types_list)):
+        tp = confusion_matrix[i][i]
+        fp = sum(confusion_matrix[j][i] for j in range(len(types_list))) - tp
+        fn = sum(confusion_matrix[i][j] for j in range(len(types_list))) - tp
+
+        precision[i] = tp / (tp + fp) if (tp + fp) > 0 else 0
+        recall[i] = tp / (tp + fn) if (tp + fn) > 0 else 0
+        f_measure[i] = 2 * (precision[i] * recall[i]) / (precision[i] + recall[i]) if (precision[i] + recall[
+            i]) > 0 else 0
+
+    return individual_correct_list, correct, confusion_matrix, precision, recall, f_measure

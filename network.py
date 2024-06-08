@@ -128,7 +128,7 @@ class Network(object):
         if self.use_bias:
             updated_biases = []
             for b, gb in zip(self.biases, bias_gradient):
-                new_biases = b - (learning_rate / len(single_batch)) * gb
+                new_biases = momentum * b - (learning_rate / len(single_batch)) * gb
                 updated_biases.append(new_biases)
             self.biases = updated_biases
 

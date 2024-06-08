@@ -4888,3 +4888,2937 @@ Wynik klasyfikacji: 3
 Blad wyjsciowy: 0.12611683558013995
 
 Calkowity blad wyjsciowy: 4.699839184316154
+Wagi:
+[array([[ 0.36820148, -0.43745431, -0.37823873, -0.04402067],
+       [ 0.60934889, -1.0878416 , -0.35462699,  0.50620776],
+       [ 0.61172456,  0.58100222,  0.92362416, -0.04102667]])]
+
+Wejscia obciazajece:
+[array([[ 0.00418207],
+       [ 0.0050104 ],
+       [-0.00067303]])]Wzorzec wejsciowy:
+[[5. ]
+ [3.4]
+ [1.5]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.4456364 ]
+ [0.25395942]
+ [0.99835864]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.45617812260715396
+
+Wzorzec wejsciowy:
+[[6.9]
+ [3.1]
+ [5.1]
+ [2.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.30119767]
+ [0.54807329]
+ [0.999976  ]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.13036812055262134
+
+Wzorzec wejsciowy:
+[[7.7]
+ [3.8]
+ [6.7]
+ [2.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.18938091]
+ [0.33200182]
+ [0.99999777]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.04869677923251197
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3.2]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.43141024]
+ [0.2396278 ]
+ [0.99680392]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4581112824367836
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.9]
+ [4.7]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.2978081 ]
+ [0.40353484]
+ [0.99993868]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.48144590564170214
+
+Wzorzec wejsciowy:
+[[5.2]
+ [2.7]
+ [3.9]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.3102273 ]
+ [0.39224097]
+ [0.99974997]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.48837067453062893
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.4]
+ [1.7]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.46339446]
+ [0.28806687]
+ [0.99893104]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.45626375024199994
+
+Wzorzec wejsciowy:
+[[7.2]
+ [3.2]
+ [6. ]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.25099913]
+ [0.42424803]
+ [0.99999196]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.08099565231965139
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.48132118]
+ [0.31442836]
+ [0.99744612]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4542638885668629
+
+Wzorzec wejsciowy:
+[[6.3]
+ [3.3]
+ [4.7]
+ [1.6]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.27529869]
+ [0.35370717]
+ [0.99995664]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.49779902007835014
+
+Wzorzec wejsciowy:
+[[4.6]
+ [3.6]
+ [1. ]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.43438816]
+ [0.2039804 ]
+ [0.99704202]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4518725149832448
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3. ]
+ [4.2]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.31207724]
+ [0.4028804 ]
+ [0.99989581]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4845785497315524
+
+Wzorzec wejsciowy:
+[[6.6]
+ [2.9]
+ [4.6]
+ [1.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.3471862 ]
+ [0.47471119]
+ [0.99995067]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.46545597867103766
+
+Wzorzec wejsciowy:
+[[6.7]
+ [3. ]
+ [5. ]
+ [1.7]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.30847473]
+ [0.47789976]
+ [0.99996924]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.45589460041413576
+
+Wzorzec wejsciowy:
+[[5.8]
+ [2.7]
+ [4.1]
+ [1. ]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.34611159]
+ [0.41442524]
+ [0.99985833]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.48746923691963745
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.3]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.47912359]
+ [0.33665084]
+ [0.99742513]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.45983430105712747
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.6]
+ [4.4]
+ [1.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.30466811]
+ [0.3953524 ]
+ [0.99986214]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4860485612949825
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.9]
+ [1.3]
+ [0.4]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.44449955]
+ [0.23047699]
+ [0.99883381]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4531231273587202
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.4]
+ [3.8]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.37605424]
+ [0.48871577]
+ [0.99973163]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4674305576946531
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.6]
+ [5.6]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.25598622]
+ [0.40526619]
+ [0.99996821]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.07658987671302743
+
+Wzorzec wejsciowy:
+[[4.9]
+ [3.1]
+ [1.5]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.4701607 ]
+ [0.29675286]
+ [0.99793224]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.45488689923419584
+
+Wzorzec wejsciowy:
+[[6.5]
+ [2.8]
+ [4.6]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.34676048]
+ [0.51196002]
+ [0.99994396]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.45277126381194815
+
+Wzorzec wejsciowy:
+[[4.7]
+ [3.2]
+ [1.6]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.43067177]
+ [0.253827  ]
+ [0.9979812 ]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4615097541071014
+
+Wzorzec wejsciowy:
+[[5.1]
+ [2.5]
+ [3. ]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.40257073]
+ [0.47153912]
+ [0.99932314]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.479993609421096
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3.2]
+ [4.8]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.24637017]
+ [0.33805814]
+ [0.99994604]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.499585793953784
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3. ]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.45298707]
+ [0.28147582]
+ [0.99641151]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.45709588972455717
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3.4]
+ [1.9]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.39096607]
+ [0.20729207]
+ [0.99871754]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.47044302067422245
+
+Wzorzec wejsciowy:
+[[6. ]
+ [2.2]
+ [5. ]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.3304317 ]
+ [0.5631679 ]
+ [0.99992549]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.14211439970947928
+
+Wzorzec wejsciowy:
+[[5.5]
+ [4.2]
+ [1.4]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.41426629]
+ [0.16690239]
+ [0.99916637]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4564246074628903
+
+Wzorzec wejsciowy:
+[[6.5]
+ [3. ]
+ [5.5]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.25456315]
+ [0.41653327]
+ [0.999978  ]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.07943412104231522
+
+Calkowity blad wyjsciowy: 11.795049860187978
+Wagi:
+[array([[ 0.21643355,  0.78923726,  0.69782088,  0.79072499],
+       [-0.21724401,  0.18918661, -0.22517536,  0.62413327],
+       [-0.4322243 ,  0.40152569,  0.11155636,  0.82749081]])]
+
+Wejscia obciazajece:
+[array([[-0.0004384 ],
+       [-0.01337217],
+       [ 0.00306626]])]Wzorzec wejsciowy:
+[[5. ]
+ [3.4]
+ [1.5]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99310481]
+ [0.33865492]
+ [0.38697748]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.0881620879832576
+
+Wzorzec wejsciowy:
+[[6.9]
+ [3.1]
+ [5.1]
+ [2.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99991014]
+ [0.34552573]
+ [0.676474  ]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.4079591279790063
+
+Wzorzec wejsciowy:
+[[7.7]
+ [3.8]
+ [6.7]
+ [2.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99998459]
+ [0.2492112 ]
+ [0.68322753]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.3874733970037097
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3.2]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.98946791]
+ [0.37010883]
+ [0.42474681]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.10583377471285027
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.9]
+ [4.7]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99966309]
+ [0.27399301]
+ [0.55322868]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.6108248105537087
+
+Wzorzec wejsciowy:
+[[5.2]
+ [2.7]
+ [3.9]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99916269]
+ [0.34600771]
+ [0.60663186]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5980114013428661
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.4]
+ [1.7]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99449265]
+ [0.30976316]
+ [0.35191923]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.07327689671948746
+
+Wzorzec wejsciowy:
+[[7.2]
+ [3.2]
+ [6. ]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99993833]
+ [0.23152073]
+ [0.58291593]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.4091458799667855
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.98859436]
+ [0.32269463]
+ [0.34794028]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.07510811687153848
+
+Wzorzec wejsciowy:
+[[6.3]
+ [3.3]
+ [4.7]
+ [1.6]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.9997991 ]
+ [0.30631487]
+ [0.6114445 ]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.6182205540278756
+
+Wzorzec wejsciowy:
+[[4.6]
+ [3.6]
+ [1. ]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99091835]
+ [0.39365565]
+ [0.43472013]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.11467627966500941
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3. ]
+ [4.2]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99957422]
+ [0.32364111]
+ [0.59080469]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.6018867153699926
+
+Wzorzec wejsciowy:
+[[6.6]
+ [2.9]
+ [4.6]
+ [1.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99964913]
+ [0.24545989]
+ [0.47594551]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5983844251531901
+
+Wzorzec wejsciowy:
+[[6.7]
+ [3. ]
+ [5. ]
+ [1.7]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99982503]
+ [0.27563908]
+ [0.56862827]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.6158956466994057
+
+Wzorzec wejsciowy:
+[[5.8]
+ [2.7]
+ [4.1]
+ [1. ]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99912255]
+ [0.25699058]
+ [0.46634013]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5892606587445485
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.3]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99024644]
+ [0.3505576 ]
+ [0.38636752]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.09075520779226996
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.6]
+ [4.4]
+ [1.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99929826]
+ [0.27725061]
+ [0.53833372]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.603588961132063
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.9]
+ [1.3]
+ [0.4]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99580553]
+ [0.37948453]
+ [0.42825478]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.10914275392351303
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.4]
+ [3.8]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.9986491 ]
+ [0.2842888 ]
+ [0.48092135]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5802759664518268
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.6]
+ [5.6]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99977216]
+ [0.22550465]
+ [0.54826613]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.41815340115294375
+
+Wzorzec wejsciowy:
+[[4.9]
+ [3.1]
+ [1.5]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99036361]
+ [0.31718494]
+ [0.34977701]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.07434770034758319
+
+Wzorzec wejsciowy:
+[[6.5]
+ [2.8]
+ [4.6]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99966875]
+ [0.26985813]
+ [0.51806107]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.6002773443317614
+
+Wzorzec wejsciowy:
+[[4.7]
+ [3.2]
+ [1.6]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99197405]
+ [0.33973491]
+ [0.4014283 ]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.0922096334299742
+
+Wzorzec wejsciowy:
+[[5.1]
+ [2.5]
+ [3. ]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99762345]
+ [0.34585044]
+ [0.51185916]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.561721330704228
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3.2]
+ [4.8]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99981125]
+ [0.34363962]
+ [0.6819568 ]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.6318321925451058
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3. ]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.98768922]
+ [0.36133206]
+ [0.40525358]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.09831429130610252
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3.4]
+ [1.9]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99454555]
+ [0.32829306]
+ [0.4184918 ]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.09431382317425607
+
+Wzorzec wejsciowy:
+[[6. ]
+ [2.2]
+ [5. ]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99955173]
+ [0.2515613 ]
+ [0.52300749]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.4299695368721064
+
+Wzorzec wejsciowy:
+[[5.5]
+ [4.2]
+ [1.4]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99645913]
+ [0.35341782]
+ [0.40948799]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.09753236903868327
+
+Wzorzec wejsciowy:
+[[6.5]
+ [3. ]
+ [5.5]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.9998809 ]
+ [0.27429827]
+ [0.62274807]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.4057734567144977
+
+Calkowity blad wyjsciowy: 10.782327741710146
+Wagi:
+[array([[ 0.39728874,  0.81272434,  0.60581364, -0.24437787],
+       [-0.61784221,  0.36629084,  0.46458766, -0.79336377],
+       [-0.96349248,  0.21247224,  0.65161935,  0.10965925]])]
+
+Wejscia obciazajece:
+[array([[-0.25036087],
+       [ 0.77726722],
+       [ 0.92111739]])]Wzorzec wejsciowy:
+[[5. ]
+ [3.4]
+ [1.5]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99531732]
+ [0.37090268]
+ [0.10205669]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.04933543149886946
+
+Wzorzec wejsciowy:
+[[6.9]
+ [3.1]
+ [5.1]
+ [2.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.9994678 ]
+ [0.1411608 ]
+ [0.18349556]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5618472502048981
+
+Wzorzec wejsciowy:
+[[7.7]
+ [3.8]
+ [6.7]
+ [2.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99991879]
+ [0.2277824 ]
+ [0.25288576]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5366340343850209
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3.2]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99213245]
+ [0.41974589]
+ [0.14562923]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.06581879493006154
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.9]
+ [4.7]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99912043]
+ [0.29807653]
+ [0.24529166]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5170353958397474
+
+Wzorzec wejsciowy:
+[[5.2]
+ [2.7]
+ [3.9]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99760133]
+ [0.32183657]
+ [0.30565115]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5161788920019416
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.4]
+ [1.7]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99645713]
+ [0.33568893]
+ [0.08093937]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.039750263702111675
+
+Wzorzec wejsciowy:
+[[7.2]
+ [3.2]
+ [6. ]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99977649]
+ [0.24239476]
+ [0.22635394]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5522788259976602
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99274296]
+ [0.37322258]
+ [0.10498746]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.05012337449621993
+
+Wzorzec wejsciowy:
+[[6.3]
+ [3.3]
+ [4.7]
+ [1.6]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99938352]
+ [0.27047796]
+ [0.22976101]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5279199837746795
+
+Wzorzec wejsciowy:
+[[4.6]
+ [3.6]
+ [1. ]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99369391]
+ [0.39168259]
+ [0.11179887]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.055318000862458666
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3. ]
+ [4.2]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99878241]
+ [0.2673897 ]
+ [0.2270961 ]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5286189361305741
+
+Wzorzec wejsciowy:
+[[6.6]
+ [2.9]
+ [4.6]
+ [1.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99925225]
+ [0.24369679]
+ [0.15686289]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5317018604832731
+
+Wzorzec wejsciowy:
+[[6.7]
+ [3. ]
+ [5. ]
+ [1.7]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99942655]
+ [0.2159911 ]
+ [0.18964046]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5498289660779427
+
+Wzorzec wejsciowy:
+[[5.8]
+ [2.7]
+ [4.1]
+ [1. ]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99848031]
+ [0.33053049]
+ [0.21212472]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.4967164151710886
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.3]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99238222]
+ [0.33691125]
+ [0.10706621]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.041676799304741656
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.6]
+ [4.4]
+ [1.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99837421]
+ [0.35977068]
+ [0.30429095]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.4997458767855749
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.9]
+ [1.3]
+ [0.4]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.9968413 ]
+ [0.30070815]
+ [0.0716157 ]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.031854725418725326
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.4]
+ [3.8]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99731809]
+ [0.29963554]
+ [0.21902125]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5110413518648788
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.6]
+ [5.6]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99934917]
+ [0.36627459]
+ [0.3540766 ]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.516690959420547
+
+Wzorzec wejsciowy:
+[[4.9]
+ [3.1]
+ [1.5]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99394069]
+ [0.37821939]
+ [0.1040571 ]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.05130483351265713
+
+Wzorzec wejsciowy:
+[[6.5]
+ [2.8]
+ [4.6]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99911392]
+ [0.21993671]
+ [0.17012754]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5452235813004462
+
+Wzorzec wejsciowy:
+[[4.7]
+ [3.2]
+ [1.6]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99416507]
+ [0.40859105]
+ [0.13436966]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.06167863119184738
+
+Wzorzec wejsciowy:
+[[5.1]
+ [2.5]
+ [3. ]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99530358]
+ [0.28151924]
+ [0.20004223]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5156202378919842
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3.2]
+ [4.8]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.9992254 ]
+ [0.2903046 ]
+ [0.31898992]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5346245099312443
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3. ]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99075665]
+ [0.40201536]
+ [0.14042122]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.06047330216914185
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3.4]
+ [1.9]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.99601831]
+ [0.44548192]
+ [0.1517125 ]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.07382889362077809
+
+Wzorzec wejsciowy:
+[[6. ]
+ [2.2]
+ [5. ]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99861942]
+ [0.27070403]
+ [0.27491778]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5320885448427346
+
+Wzorzec wejsciowy:
+[[5.5]
+ [4.2]
+ [1.4]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.9978656 ]
+ [0.35647576]
+ [0.07232518]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.04410348532483233
+
+Wzorzec wejsciowy:
+[[6.5]
+ [3. ]
+ [5.5]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99952999]
+ [0.26646014]
+ [0.28437266]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.5273945633253586
+
+Calkowity blad wyjsciowy: 10.126456721462041
+Wagi:
+[array([[ 0.76720127, -0.43339873,  0.5251508 , -0.89356457],
+       [-0.07041075, -0.5935823 ,  0.47248365, -0.54971642],
+       [ 0.53433478,  0.97038128,  0.82543387,  0.60689131]])]
+
+Wejscia obciazajece:
+[array([[-0.00285389],
+       [ 0.00562676],
+       [-0.00050907]])]Wzorzec wejsciowy:
+[[5. ]
+ [3.4]
+ [1.5]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.95113572]
+ [0.14606235]
+ [0.99934485]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3408040185199966
+
+Wzorzec wejsciowy:
+[[6.9]
+ [3.1]
+ [5.1]
+ [2.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.98975198]
+ [0.23595353]
+ [0.99999545]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3450943475382518
+
+Wzorzec wejsciowy:
+[[7.7]
+ [3.8]
+ [6.7]
+ [2.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99701257]
+ [0.30240227]
+ [0.99999957]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.36182706519825053
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3.2]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.92343348]
+ [0.15454908]
+ [0.99870794]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3423884674532465
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.9]
+ [4.7]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99041036]
+ [0.33310001]
+ [0.99997965]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.8085425241922802
+
+Wzorzec wejsciowy:
+[[5.2]
+ [2.7]
+ [3.9]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.97375065]
+ [0.29108958]
+ [0.99992264]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.8168631930825428
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.4]
+ [1.7]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.96709018]
+ [0.1545316 ]
+ [0.99955135]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3413553218907907
+
+Wzorzec wejsciowy:
+[[7.2]
+ [3.2]
+ [6. ]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99658653]
+ [0.36461672]
+ [0.99999773]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.37537669176889854
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.95370722]
+ [0.18144526]
+ [0.99876041]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3441959233327529
+
+Wzorzec wejsciowy:
+[[6.3]
+ [3.3]
+ [4.7]
+ [1.6]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.98832779]
+ [0.25814053]
+ [0.99998901]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.8423751046229858
+
+Wzorzec wejsciowy:
+[[4.6]
+ [3.6]
+ [1. ]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.90990491]
+ [0.10981633]
+ [0.99899083]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3393864753176077
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3. ]
+ [4.2]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.98351568]
+ [0.26295096]
+ [0.99997077]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.8368286414309835
+
+Wzorzec wejsciowy:
+[[6.6]
+ [2.9]
+ [4.6]
+ [1.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99368114]
+ [0.32702327]
+ [0.99998202]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.8134213106037601
+
+Wzorzec wejsciowy:
+[[6.7]
+ [3. ]
+ [5. ]
+ [1.7]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99292363]
+ [0.30598195]
+ [0.99999128]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.8225136465561803
+
+Wzorzec wejsciowy:
+[[5.8]
+ [2.7]
+ [4.1]
+ [1. ]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.98940048]
+ [0.35024527]
+ [0.99993932]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.8003243879385084
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.3]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.94514566]
+ [0.16568404]
+ [0.99890195]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.342755099013717
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.6]
+ [4.4]
+ [1.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.98698179]
+ [0.37620725]
+ [0.99994573]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.7877139720222021
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.9]
+ [1.3]
+ [0.4]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.94131248]
+ [0.09151961]
+ [0.99965965]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.337046495282046
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.4]
+ [3.8]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.98506865]
+ [0.35081013]
+ [0.99988512]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.7971926575439894
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.6]
+ [5.6]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99472817]
+ [0.47729379]
+ [0.99998704]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.405764495044501
+
+Wzorzec wejsciowy:
+[[4.9]
+ [3.1]
+ [1.5]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.95735507]
+ [0.17861824]
+ [0.99901782]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3439198898849098
+
+Wzorzec wejsciowy:
+[[6.5]
+ [2.8]
+ [4.6]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.99219987]
+ [0.31751328]
+ [0.99998149]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.816737228525772
+
+Wzorzec wejsciowy:
+[[4.7]
+ [3.2]
+ [1.6]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.9467302 ]
+ [0.17097449]
+ [0.99914038]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.34345048044877396
+
+Wzorzec wejsciowy:
+[[5.1]
+ [2.5]
+ [3. ]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.96829023]
+ [0.2641205 ]
+ [0.99975016]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.8262016637527266
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3.2]
+ [4.8]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.98286023]
+ [0.2629236 ]
+ [0.99998777]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.8364237987892401
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3. ]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.92934155]
+ [0.17070458]
+ [0.99843163]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.34366613141183994
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3.4]
+ [1.9]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.95370101]
+ [0.17325254]
+ [0.9994759 ]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.34370403491911045
+
+Wzorzec wejsciowy:
+[[6. ]
+ [2.2]
+ [5. ]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99284159]
+ [0.45391239]
+ [0.99996889]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.39725696398351684
+
+Wzorzec wejsciowy:
+[[5.5]
+ [4.2]
+ [1.4]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.95040398]
+ [0.08922422]
+ [0.99974928]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.33663978246803977
+
+Wzorzec wejsciowy:
+[[6.5]
+ [3. ]
+ [5.5]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.99306125]
+ [0.3489587 ]
+ [0.99999395]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3693142761033983
+
+Calkowity blad wyjsciowy: 16.15908408864082
+Wagi:
+[array([[-0.5061445 ,  0.85993395,  0.16816124, -0.86685337],
+       [-0.80994155, -0.31949346, -0.86967807, -0.37816231],
+       [-0.2681305 , -0.7517591 ,  0.47967162,  0.7474545 ]])]
+
+Wejscia obciazajece:
+[array([[0.00781856],
+       [0.0001557 ],
+       [0.00135968]])]Wzorzec wejsciowy:
+[[5. ]
+ [3.4]
+ [1.5]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.61768711]
+ [0.00147742]
+ [0.04625285]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.04943488533594332
+
+Wzorzec wejsciowy:
+[[6.9]
+ [3.1]
+ [5.1]
+ [2.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[1.24017472e-01]
+ [6.89986240e-06]
+ [4.96569213e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.08960763032572983
+
+Wzorzec wejsciowy:
+[[7.7]
+ [3.8]
+ [6.7]
+ [2.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[1.97476397e-01]
+ [7.45455588e-07]
+ [4.84572401e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.10155417906394193
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3.2]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.64056341]
+ [0.00304204]
+ [0.05673373]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.04414087779190674
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.9]
+ [4.7]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[2.67157716e-01]
+ [2.79816692e-05]
+ [3.74386322e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4038274668149211
+
+Wzorzec wejsciowy:
+[[5.2]
+ [2.7]
+ [3.9]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[2.97323245e-01]
+ [1.23970319e-04]
+ [3.76246001e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4099047467326626
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.4]
+ [1.7]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.5771091 ]
+ [0.00089849]
+ [0.04575614]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.0603103804989698
+
+Wzorzec wejsciowy:
+[[7.2]
+ [3.2]
+ [6. ]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[1.92165251e-01]
+ [2.89488260e-06]
+ [4.72188432e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.10517084504848374
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.5761204 ]
+ [0.0022347 ]
+ [0.05761351]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.060999409337379684
+
+Wzorzec wejsciowy:
+[[6.3]
+ [3.3]
+ [4.7]
+ [1.6]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[2.80957444e-01]
+ [1.94168265e-05]
+ [3.27771039e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3954440355424446
+
+Wzorzec wejsciowy:
+[[4.6]
+ [3.6]
+ [1. ]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.68354396]
+ [0.00295569]
+ [0.03525655]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.03379872807734334
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3. ]
+ [4.2]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[2.70391931e-01]
+ [4.73985660e-05]
+ [3.31793379e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3943679493441685
+
+Wzorzec wejsciowy:
+[[6.6]
+ [2.9]
+ [4.6]
+ [1.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[2.32848840e-01]
+ [2.11442865e-05]
+ [3.16430932e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.38476827642064504
+
+Wzorzec wejsciowy:
+[[6.7]
+ [3. ]
+ [5. ]
+ [1.7]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[1.92104646e-01]
+ [1.14650096e-05]
+ [4.05798630e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4005179311375162
+
+Wzorzec wejsciowy:
+[[5.8]
+ [2.7]
+ [4.1]
+ [1. ]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[3.13589687e-01]
+ [7.45489516e-05]
+ [2.95371121e-01]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.39514449969757415
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.3]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.53332466]
+ [0.00207226]
+ [0.06628749]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.07406140055991593
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.6]
+ [4.4]
+ [1.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[3.01437382e-01]
+ [7.00953431e-05]
+ [3.96413573e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4159560099740231
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.9]
+ [1.3]
+ [0.4]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.62251783]
+ [0.00100536]
+ [0.03059486]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.04780994889498594
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.4]
+ [3.8]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[2.63732007e-01]
+ [1.30753969e-04]
+ [3.46914931e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3965476831679309
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.6]
+ [5.6]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[2.46804852e-01]
+ [1.40792390e-05]
+ [5.35885032e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.09210511302708091
+
+Wzorzec wejsciowy:
+[[4.9]
+ [3.1]
+ [1.5]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.58881342]
+ [0.00183052]
+ [0.05474958]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.05735842428106514
+
+Wzorzec wejsciowy:
+[[6.5]
+ [2.8]
+ [4.6]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[1.97650498e-01]
+ [2.19480865e-05]
+ [3.73146245e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3927533146803183
+
+Wzorzec wejsciowy:
+[[4.7]
+ [3.2]
+ [1.6]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.61690106]
+ [0.00184015]
+ [0.06022702]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.05013182662442333
+
+Wzorzec wejsciowy:
+[[5.1]
+ [2.5]
+ [3. ]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.29468479]
+ [0.00035103]
+ [0.27204162]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.38671461253634226
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3.2]
+ [4.8]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[2.72929987e-01]
+ [2.35579087e-05]
+ [4.16198794e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.4158883660432586
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3. ]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.60008602]
+ [0.00324212]
+ [0.06533698]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.0547368742466521
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3.4]
+ [1.9]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.65661285]
+ [0.00122711]
+ [0.05837163]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.04044116150373537
+
+Wzorzec wejsciowy:
+[[6. ]
+ [2.2]
+ [5. ]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[1.68447877e-01]
+ [2.81478053e-05]
+ [5.64205197e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.07276393269909405
+
+Wzorzec wejsciowy:
+[[5.5]
+ [4.2]
+ [1.4]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.71049749]
+ [0.00083306]
+ [0.02167431]]
+Wynik klasyfikacji: 1
+Blad wyjsciowy: 0.02809405716319816
+
+Wzorzec wejsciowy:
+[[6.5]
+ [3. ]
+ [5.5]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[2.07877334e-01]
+ [8.40339557e-06]
+ [4.96711584e-01]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.09883740539189352
+
+Calkowity blad wyjsciowy: 5.953191971963548
+Wagi:
+[array([[-0.85152617,  0.74833879,  0.4193863 , -0.12771406],
+       [ 0.22513418,  0.76356148, -0.91132517,  0.14551308],
+       [-0.24260295, -0.19726201,  0.6048047 ,  0.05744398]])]
+
+Wejscia obciazajece:
+[array([[ 0.00756193],
+       [-0.01655524],
+       [ 0.01004065]])]Wzorzec wejsciowy:
+[[5. ]
+ [3.4]
+ [1.5]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.24933158]
+ [0.91430263]
+ [0.2778866 ]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.49222444798934145
+
+Wzorzec wejsciowy:
+[[6.9]
+ [3.1]
+ [5.1]
+ [2.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.15407508]
+ [0.39911185]
+ [0.71934061]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.08726636372126839
+
+Wzorzec wejsciowy:
+[[7.7]
+ [3.8]
+ [6.7]
+ [2.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.2356668 ]
+ [0.23735454]
+ [0.82792192]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.04716229440964759
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3.2]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.30474365]
+ [0.90566454]
+ [0.29092086]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.46274819732610095
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.9]
+ [4.7]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.22718953]
+ [0.37556435]
+ [0.70705146]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3138189093422192
+
+Wzorzec wejsciowy:
+[[5.2]
+ [2.7]
+ [3.9]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.28028416]
+ [0.46637797]
+ [0.65814932]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.26549073454489874
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.4]
+ [1.7]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.20441693]
+ [0.90679611]
+ [0.28271188]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.5117192042753478
+
+Wzorzec wejsciowy:
+[[7.2]
+ [3.2]
+ [6. ]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.19118791]
+ [0.23899089]
+ [0.79645578]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.045033237300892016
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.22090885]
+ [0.89026681]
+ [0.29033274]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.4946170382314694
+
+Wzorzec wejsciowy:
+[[6.3]
+ [3.3]
+ [4.7]
+ [1.6]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.24587001]
+ [0.46782841]
+ [0.68247512]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.26981031816684403
+
+Wzorzec wejsciowy:
+[[4.6]
+ [3.6]
+ [1. ]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.30542513]
+ [0.94713303]
+ [0.23151388]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.4776979679774134
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3. ]
+ [4.2]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.2311952]
+ [0.4982812]
+ [0.6486802]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.24198632871937642
+
+Wzorzec wejsciowy:
+[[6.6]
+ [2.9]
+ [4.6]
+ [1.3]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.15720414]
+ [0.42085363]
+ [0.66676287]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.268232130960481
+
+Wzorzec wejsciowy:
+[[6.7]
+ [3. ]
+ [5. ]
+ [1.7]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.17181341]
+ [0.37128095]
+ [0.71391871]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.31149580571491714
+
+Wzorzec wejsciowy:
+[[5.8]
+ [2.7]
+ [4.1]
+ [1. ]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.21098383]
+ [0.44026636]
+ [0.6473656 ]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.25896604759055997
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3. ]
+ [1.4]
+ [0.3]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.21654408]
+ [0.89307777]
+ [0.29270558]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.49902254918324523
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.6]
+ [4.4]
+ [1.2]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.26151517]
+ [0.34790235]
+ [0.7094917 ]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.3323333325147328
+
+Wzorzec wejsciowy:
+[[5.4]
+ [3.9]
+ [1.3]
+ [0.4]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.23540452]
+ [0.9548059 ]
+ [0.22095437]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.5150271317767835
+
+Wzorzec wejsciowy:
+[[5.5]
+ [2.4]
+ [3.8]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.19362331]
+ [0.43813341]
+ [0.63731789]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.2531193790360357
+
+Wzorzec wejsciowy:
+[[6.1]
+ [2.6]
+ [5.6]
+ [1.4]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.25515533]
+ [0.17397987]
+ [0.81526778]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.043166409355493034
+
+Wzorzec wejsciowy:
+[[4.9]
+ [3.1]
+ [1.5]
+ [0.1]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.22639888]
+ [0.89102038]
+ [0.29374287]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.49288695904272645
+
+Wzorzec wejsciowy:
+[[6.5]
+ [2.8]
+ [4.6]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.1551976 ]
+ [0.40394912]
+ [0.67897285]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.2801223585101664
+
+Wzorzec wejsciowy:
+[[4.7]
+ [3.2]
+ [1.6]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.27799044]
+ [0.8865479 ]
+ [0.31383401]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.46858559294481744
+
+Wzorzec wejsciowy:
+[[5.1]
+ [2.5]
+ [3. ]
+ [1.1]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.20641022]
+ [0.61458383]
+ [0.53922251]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.16063724025761209
+
+Wzorzec wejsciowy:
+[[5.9]
+ [3.2]
+ [4.8]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [1]
+ [0]]
+Uzyskane wyjscia:
+[[0.30183196]
+ [0.41161232]
+ [0.72190014]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.31948080112327976
+
+Wzorzec wejsciowy:
+[[4.4]
+ [3. ]
+ [1.3]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.27398895]
+ [0.89178446]
+ [0.29912596]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.4706159670114167
+
+Wzorzec wejsciowy:
+[[4.8]
+ [3.4]
+ [1.9]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.3177523 ]
+ [0.87629278]
+ [0.3397235 ]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.4495876728355776
+
+Wzorzec wejsciowy:
+[[6. ]
+ [2.2]
+ [5. ]
+ [1.5]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.17510226]
+ [0.21010856]
+ [0.77392987]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.04197137077750159
+
+Wzorzec wejsciowy:
+[[5.5]
+ [4.2]
+ [1.4]
+ [0.2]]
+Wzorzec wyjsciowy:
+[[1]
+ [0]
+ [0]]
+Uzyskane wyjscia:
+[[0.27463918]
+ [0.96014699]
+ [0.21508188]]
+Wynik klasyfikacji: 2
+Blad wyjsciowy: 0.4980969224245573
+
+Wzorzec wejsciowy:
+[[6.5]
+ [3. ]
+ [5.5]
+ [1.8]]
+Wzorzec wyjsciowy:
+[[0]
+ [0]
+ [1]]
+Uzyskane wyjscia:
+[[0.23048008]
+ [0.26641983]
+ [0.78094134]]
+Wynik klasyfikacji: 3
+Blad wyjsciowy: 0.05736242943717735
+
+Calkowity blad wyjsciowy: 9.430285142501898
