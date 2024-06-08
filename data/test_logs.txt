@@ -1,0 +1,49 @@
+WARTOSCI Z CZESCI TESTOWEJ
+POROWNANIE WYNIKOW
+Liczba poprawnie sklasyfikowanych elementow:
+12
+Z podzialem na klasy:
+12
+0
+0
+Wyniki testowe - Wyniki przewidywane
+0 - 0
+2 - 0
+2 - 0
+0 - 0
+1 - 0
+1 - 0
+0 - 0
+2 - 0
+0 - 0
+1 - 0
+0 - 0
+1 - 0
+1 - 0
+1 - 0
+1 - 0
+0 - 0
+1 - 0
+0 - 0
+1 - 0
+2 - 0
+0 - 0
+1 - 0
+0 - 0
+1 - 0
+1 - 0
+0 - 0
+0 - 0
+2 - 0
+0 - 0
+2 - 0
+
+Wagi: [array([[-0.89446063,  0.04949668, -0.11992254,  0.75534542],
+       [-0.04590745,  0.34228321, -0.23679068, -0.33637398],
+       [-0.17072914, -0.84613778,  1.15601122, -0.50580988]])]
+Blad dla calej sieci: 0
+Macierz pomylek: 
+[12, 0, 0] [12, 0, 0] [6, 0, 0] 
+ Klasa 0: Precision: 0.4 Recall: 1.0 F-measure: 0.5714285714285715
+ Klasa 1: Precision: 0 Recall: 0.0 F-measure: 0
+ Klasa 2: Precision: 0 Recall: 0.0 F-measure: 0

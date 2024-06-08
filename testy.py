@@ -18,15 +18,34 @@ class MyTestCase(unittest.TestCase):
                              "2 - autoenkoder\n"))
 
         if data_set == 1:
-            train_raw = pd.read_csv('data/data.csv', header=None)
-            test_raw = pd.read_csv('data/test.csv', header=None)
-            train_data = prepare_data(train_raw)
-            test_data = prepare_data(test_raw)
-            print(type(test_data))
-            test_x = [row[:-1] for row in test_data]
-            test_y = [row[-1] for row in test_data]
-            valid = random.choices(train_data, k=int(len(train_data) / 3))
-            random.shuffle(valid)
+            prepared_data = pd.read_csv('data/data.csv', header=None)
+            # test_raw = pd.read_csv('data/test.csv', header=None)
+            #prepared_data = prepare_data(data)
+            # Pobierz liczbę wierszy w ramce danych
+            num_rows = prepared_data.shape[0]
+
+            # Utwórz listę indeksów wierszy
+            row_indices = list(range(num_rows))
+
+            # Przemieszaj indeksy
+            random.shuffle(row_indices)
+
+            # Wybierz wiersze w kolejności przemieszanych indeksów
+            shuffled_data = prepared_data.iloc[row_indices]
+
+            print(shuffled_data)
+
+
+
+            train_data = shuffled_data[:90]
+            test_data = shuffled_data[90:90 + 45]
+            valid_data = shuffled_data[90 + 45:]
+
+            test_x = test_data.iloc[:, :-1]  # Wybierz wszystkie kolumny oprócz ostatniej jako cechy
+            test_y = test_data.iloc[:, -1]
+
+            test_data.to_csv("data/test.csv", index=False, header=False)
+
 
         if data_set == 2:
             x_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
@@ -51,24 +70,14 @@ class MyTestCase(unittest.TestCase):
 
         net.train(train_data, epochs=early_stopping_epoch, precision=early_stopping_error, batch_size=10,
                   learning_rate=learning_rate, momentum=momentum, shuffle=want_random, hops=hops,
-                  validation_data=valid, debug=True)
+                  validation_data=valid_data, debug=True)
         # confusion(net, test_data)
         output = net.feedforward(test_x)
 
-        def prepare_type_list(y_pred):
-            max_indices = []
-            for row in y_pred:
-                for sub_row in row:
-                    lista = [0, 0, 0]
-                    max_index = sub_row.argmax()
-                    lista[max_index] = 1
-                    max_indices.append(lista)
-            return np.array(max_indices)
+        # lista1 = prepare_type_list(output)
 
-        lista1 = prepare_type_list(output)
+        # print(lista1)
 
-        print(lista1)
+        # print("y", test_y)
 
-        print("result\n", output)
-
-        test_logs(net, test_y, output )
+        test_logs(net, test_y, output)

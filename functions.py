@@ -8,10 +8,18 @@ def prepare_type_list(y_pred):
     max_indices = []
     for row in y_pred:
         for sub_row in row:
-            lista = [0, 0, 0]
+            lista = [0] * 3
             max_index = sub_row.argmax()
             lista[max_index] = 1
             max_indices.append(lista)
+        return np.array(max_indices)
+
+
+def prepare_bin_type_list(y_pred):
+    max_indices = []
+    for row in y_pred:
+        max_index = row.argmax()
+        max_indices.append(max_index)
     return np.array(max_indices)
 
 
@@ -137,24 +145,29 @@ def test_logs(network, test, result):
         if all(not np.array_equal(i, existing) for existing in types_list):
             types_list.append(i)
     # print(types_list)
-    test_bin = prepare_type_list(test)
+    # test_bin = prepare_type_list(test)
     result_bin = prepare_type_list(result)
+    print(result_bin)
 
-    indiv_correct, correct, confusion_matrix, precision, recall, f_measure = calculate_to_logs(test_bin, result_bin, types_list)
+    test_bin_bin = prepare_bin_type_list(test)
+    print(test_bin_bin)
+    result_bin_bin = prepare_bin_type_list(result_bin)
+
+    indiv_correct, correct, confusion_matrix, precision, recall, f_measure = calculate_to_logs(test_bin_bin, result_bin_bin, types_list)
     global_error = 0
     error = 0
-    with open("data/test_logs.txt", 'a') as plik:
+    with open("data/test_logs.txt", 'w') as plik:
         plik.write("WARTOSCI Z CZESCI TESTOWEJ\n")
-        plik.write("POROWNANIE WYNIKOW\nLiczba poprawnie sklasyfikowanych elementow:\n\n")
+        plik.write("POROWNANIE WYNIKOW\nLiczba poprawnie sklasyfikowanych elementow:\n")
         plik.write(str(correct))
-        plik.write("Z podzialem na klasy:\n")
+        plik.write("\nZ podzialem na klasy:\n")
         for element in indiv_correct:
             plik.write(f"{element}\n")
         plik.write("Wyniki testowe - Wyniki przewidywane\n")
-        for test, pred in zip(test, result):
+        for test, pred in zip(test_bin_bin, result_bin_bin):
             plik.write(f"{test} - {pred}\n")
         plik.write("\nWagi: " + str(network.weights))
-        for i in range(len(test)):
+        for i in range(len(test_bin_bin)):
             # error = calculate_error(test, result)
             # global_error += error
             error += 1
@@ -162,39 +175,39 @@ def test_logs(network, test, result):
         plik.write("\nMacierz pomylek: \n")
 
         for i in range(len(confusion_matrix)):
-            if i == 2 or i == 5 or i == 8:
-                plik.write(f"{confusion_matrix[i]} \n")
-            else:
-                plik.write(f"{confusion_matrix[i]} ")
+            plik.write(f"{confusion_matrix[i]} ")
 
-        for i in range(len(test)):
+        for i in range(len(types_list)):
             plik.write(f"\n Klasa {i}: Precision: {precision[i]} Recall: {recall[i]} F-measure: {f_measure[i]}")
 
 
 def calculate_to_logs(y_test, y_pred, types_list):
-    print(y_test)
-    print(y_pred)
-    individual_correct_list = [0] * len(types_list)
+
     correct = 0
+    print(y_pred)
+    print(y_test)
+    types_list_bin_bin = prepare_bin_type_list(types_list)
+    individual_correct_list = [0] * len(types_list_bin_bin)
+    print(individual_correct_list)
+
     for i in range(len(y_test)):
-        for j in range(len(types_list)):
-            if np.array_equal(y_test[i], y_pred[i]) and np.array_equal(y_test[i], types_list[j]):
-                individual_correct_list[j] += 1
+        if y_test[i] == y_pred[i]:
+            correct += 1
+            individual_correct_list[y_test[i]] += 1
 
-    for i in range(len(individual_correct_list)):
-        correct += individual_correct_list[i]
+    print(individual_correct_list)
 
-    confusion_matrix = [[0 for _ in range(len(types_list))] for i in range(len(types_list))]
+    confusion_matrix = [[0 for _ in range(len(types_list_bin_bin))] for i in range(len(types_list_bin_bin))]
     for t, r in zip(y_test, y_pred):
         confusion_matrix[t][r] += 1
-    precision = [0] * len(types_list)
-    recall = [0] * len(types_list)
-    f_measure = [0] * len(types_list)
+    precision = [0] * len(types_list_bin_bin)
+    recall = [0] * len(types_list_bin_bin)
+    f_measure = [0] * len(types_list_bin_bin)
 
-    for i in range(len(types_list)):
+    for i in range(len(types_list_bin_bin)):
         tp = confusion_matrix[i][i]
-        fp = sum(confusion_matrix[j][i] for j in range(len(types_list))) - tp
-        fn = sum(confusion_matrix[i][j] for j in range(len(types_list))) - tp
+        fp = sum(confusion_matrix[j][i] for j in range(len(types_list_bin_bin))) - tp
+        fn = sum(confusion_matrix[i][j] for j in range(len(types_list_bin_bin))) - tp
 
         precision[i] = tp / (tp + fp) if (tp + fp) > 0 else 0
         recall[i] = tp / (tp + fn) if (tp + fn) > 0 else 0
