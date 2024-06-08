@@ -4,6 +4,17 @@ import matplotlib.pyplot as plt
 import network
 
 
+def prepare_type_list(y_pred):
+    max_indices = []
+    for row in y_pred:
+        for sub_row in row:
+            lista = [0, 0, 0]
+            max_index = sub_row.argmax()
+            lista[max_index] = 1
+            max_indices.append(lista)
+    return np.array(max_indices)
+
+
 def prepare_data(data):
     data = np.array(data)
     target_values = []
@@ -125,9 +136,11 @@ def test_logs(network, test, result):
     for i in test:
         if all(not np.array_equal(i, existing) for existing in types_list):
             types_list.append(i)
-    print(types_list)
+    # print(types_list)
+    test_bin = prepare_type_list(test)
+    result_bin = prepare_type_list(result)
 
-    indiv_correct, correct, confusion_matrix, precision, recall, f_measure = calculate_to_logs(test, result, types_list)
+    indiv_correct, correct, confusion_matrix, precision, recall, f_measure = calculate_to_logs(test_bin, result_bin, types_list)
     global_error = 0
     error = 0
     with open("data/test_logs.txt", 'a') as plik:
@@ -165,7 +178,7 @@ def calculate_to_logs(y_test, y_pred, types_list):
     correct = 0
     for i in range(len(y_test)):
         for j in range(len(types_list)):
-            if y_test[i] == y_pred[i] and y_test[i] == types_list[j]:
+            if np.array_equal(y_test[i], y_pred[i]) and np.array_equal(y_test[i], types_list[j]):
                 individual_correct_list[j] += 1
 
     for i in range(len(individual_correct_list)):

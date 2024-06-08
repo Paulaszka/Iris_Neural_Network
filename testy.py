@@ -55,34 +55,20 @@ class MyTestCase(unittest.TestCase):
         # confusion(net, test_data)
         output = net.feedforward(test_x)
 
-        array_data = np.array(output)
-
         def prepare_type_list(y_pred):
             max_indices = []
             for row in y_pred:
-                counter = 0
-                maximum = 0
-                index_max = 0
-                for i in range(len(row)):
-                    for value in row[i]:
-                        if value > maximum:
-                            maximum = value
-                            index_max = i
-                temp_list = [0] * len(row)
-                temp_list[index_max] = 1
-                max_indices[counter] = temp_list
-                counter += 1
-            return max_indices
+                for sub_row in row:
+                    lista = [0, 0, 0]
+                    max_index = sub_row.argmax()
+                    lista[max_index] = 1
+                    max_indices.append(lista)
+            return np.array(max_indices)
 
         lista1 = prepare_type_list(output)
 
         print(lista1)
 
-
-
-
-
-
-        print("result\n",array_data)
+        print("result\n", output)
 
         test_logs(net, test_y, output )
