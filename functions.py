@@ -144,13 +144,10 @@ def test_logs(network, test, result):
     for i in test:
         if all(not np.array_equal(i, existing) for existing in types_list):
             types_list.append(i)
-    # print(types_list)
-    # test_bin = prepare_type_list(test)
-    result_bin = prepare_type_list(result)
-    print(result_bin)
 
+    result_bin = prepare_type_list(result)
+    
     test_bin_bin = prepare_bin_type_list(test)
-    print(test_bin_bin)
     result_bin_bin = prepare_bin_type_list(result_bin)
 
     indiv_correct, correct, confusion_matrix, precision, recall, f_measure = calculate_to_logs(test_bin_bin, result_bin_bin, types_list)
@@ -184,18 +181,16 @@ def test_logs(network, test, result):
 def calculate_to_logs(y_test, y_pred, types_list):
 
     correct = 0
-    print(y_pred)
-    print(y_test)
     types_list_bin_bin = prepare_bin_type_list(types_list)
     individual_correct_list = [0] * len(types_list_bin_bin)
-    print(individual_correct_list)
+
 
     for i in range(len(y_test)):
         if y_test[i] == y_pred[i]:
             correct += 1
             individual_correct_list[y_test[i]] += 1
 
-    print(individual_correct_list)
+
 
     confusion_matrix = [[0 for _ in range(len(types_list_bin_bin))] for i in range(len(types_list_bin_bin))]
     for t, r in zip(y_test, y_pred):
