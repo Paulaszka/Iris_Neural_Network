@@ -57,7 +57,7 @@ if mode == 1:
     stop_type = one_two_input()
 
     early_stopping_epoch = 1000
-    early_stopping_error = 1.0  # TODO sprawdzic czy ten blad jest okej
+    early_stopping_error = -1.0  # TODO sprawdzic czy ten blad jest okej
 
     if stop_type == 1:
         early_stopping_epoch = int_input("\nPodaj liczbe epok: ")
@@ -85,7 +85,7 @@ if mode == 1:
 
     net.train(train_data, epochs=early_stopping_epoch, precision=early_stopping_error, batch_size=10,
               learning_rate=learning_rate, momentum=momentum, shuffle=want_random, hops=hops,
-              validation_data=valid, debug=True)
+              validation_data=None, debug=True)
 
 
 # - - - TRYB TESTOWANIA - - -

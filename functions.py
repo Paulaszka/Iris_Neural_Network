@@ -146,7 +146,7 @@ def test_logs(network, test, result):
             types_list.append(i)
 
     result_bin = prepare_type_list(result)
-    
+
     test_bin_bin = prepare_bin_type_list(test)
     result_bin_bin = prepare_bin_type_list(result_bin)
 
@@ -184,13 +184,10 @@ def calculate_to_logs(y_test, y_pred, types_list):
     types_list_bin_bin = prepare_bin_type_list(types_list)
     individual_correct_list = [0] * len(types_list_bin_bin)
 
-
     for i in range(len(y_test)):
         if y_test[i] == y_pred[i]:
             correct += 1
             individual_correct_list[y_test[i]] += 1
-
-
 
     confusion_matrix = [[0 for _ in range(len(types_list_bin_bin))] for i in range(len(types_list_bin_bin))]
     for t, r in zip(y_test, y_pred):

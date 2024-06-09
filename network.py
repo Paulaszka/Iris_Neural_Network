@@ -55,11 +55,12 @@ class Network(object):
             x_data = sigmoid(np.dot(weight, x_data) + bias)
         return x_data
 
-    def train(self, training_data, epochs, precision, batch_size, learning_rate, momentum, shuffle, hops,
-              validation_data, debug=False):
+    def train(self, training_data, epochs, early_stopping_error, batch_size, learning_rate, momentum, shuffle, hops,
+              validation_data):
         error_log = ""
         train = list(training_data)
         valid = list(validation_data)
+
 
         for epoch in range(epochs):
             if shuffle:
@@ -73,24 +74,23 @@ class Network(object):
             for single_batch in batch_list:
                 self.update(single_batch, learning_rate, momentum)
 
+            if early_stopping_error!= -1 and early_stopping_error >= self.epoch_error(train):
+                print("Desired precision reached, stopping training.")
+                with open('trainError.csv', 'w') as file:
+                    file.write(error_log)
+                return
+
             if epoch % hops == 0:
                 if valid:
-                    test_results = [(np.argmax(self.feedforward(x)), np.argmax(y))
-                                    for (x, y) in valid]
+                    test_results = [(np.argmax(self.feedforward(x)), np.argmax(y)) for (x, y) in valid]
                     num_correct = sum(int(x == y) for (x, y) in test_results)
                     current_precision = num_correct / len(valid)
                     epoch_error = self.epoch_error(valid)
-                    if debug:
-                        print(epoch_error)
-                        print(f"Epoch {epoch} : {num_correct} / {len(valid)} Precision: {current_precision}")
-                    if current_precision >= precision:
-                        print("Desired precision reached, stopping training.")
-                        with open('trainError.csv', 'w') as file:
-                            file.write(error_log)
-                        return
+                    print(epoch_error)
+                    print(f"Epoch {epoch} : {num_correct} / {len(valid)} Precision: {current_precision}")
+
                 else:
-                    if debug:
-                        print(f"Epoch {epoch} complete")
+                    print(f"Epoch {epoch} complete")
                 error_log += f"{epoch}, {self.epoch_error(train)}\n"
         with open('trainError.csv', 'w') as file:
             file.write(error_log)
