@@ -19,32 +19,66 @@ class MyTestCase(unittest.TestCase):
 
         if data_set == 1:
             prepared_data = pd.read_csv('data/data.csv', header=None)
-            # test_raw = pd.read_csv('data/test.csv', header=None)
-            #prepared_data = prepare_data(data)
-            # Pobierz liczbę wierszy w ramce danych
-            num_rows = prepared_data.shape[0]
-
-            # Utwórz listę indeksów wierszy
-            row_indices = list(range(num_rows))
-
-            # Przemieszaj indeksy
+            row_indices = list(range(prepared_data.shape[0]))
             random.shuffle(row_indices)
-
-            # Wybierz wiersze w kolejności przemieszanych indeksów
             shuffled_data = prepared_data.iloc[row_indices]
 
-            print(shuffled_data)
+            first_part = prepared_data.iloc[row_indices[:90]]  # Pierwsza część: 90 elementów
+            second_part = prepared_data.iloc[row_indices[90:125]]  # Druga część: 35 elementów
+            third_part = prepared_data.iloc[row_indices[125:]]  # Trzecia część: 15 elementów
 
+            # Zapisz każdą część do osobnego pliku CSV
+            first_part.to_csv('data/train_part.csv', index=False, header=None)
+            second_part.to_csv('data/test_part.csv', index=False, header=None)
+            third_part.to_csv('data/valid_part.csv', index=False, header=None)
 
+            train_data = pd.read_csv('data/train_part.csv', header=None)
+            train_data = prepare_data(train_data)
+            test_raw = pd.read_csv('data/test_part.csv', header=None)
+            valid_data = pd.read_csv('data/valid_part.csv', header=None)
+            valid_data = prepare_data(valid_data)
 
-            train_data = shuffled_data[:90]
-            test_data = shuffled_data[90:90 + 45]
-            valid_data = shuffled_data[90 + 45:]
+            print(test_raw)
 
-            test_x = test_data.iloc[:, :-1]  # Wybierz wszystkie kolumny oprócz ostatniej jako cechy
-            test_y = test_data.iloc[:, -1]
+            # train_raw = pd.read_csv('data/train_part.csv', header=None)
+            # test_raw = pd.read_csv('data/test_part.csv', header=None)
+            # valid_raw = pd.read_csv('data/valid_part.csv', header=None)
+            # print(test_raw)
 
-            test_data.to_csv("data/test.csv", index=False, header=False)
+            # train_data = prepare_data(train_raw)
+            # test_data = prepare_data(test_raw)
+            # valid_data = prepare_data(valid_raw)
+            # print(test_data)
+
+            num_rows = test_raw.shape[0]
+            num_cols = test_raw.shape[1]
+
+            x_test = np.zeros((num_rows, num_cols - 1))
+
+            y_test = []
+
+            for i in range(num_rows):
+                for j in range(num_cols - 1):
+                    x = test_raw.iloc[i, j]  # Access by integer index (more efficient)
+                    x_test[i][j] = x
+                y = test_raw.iloc[i, -1]  # Access the last column for y
+                y_test.append(y)
+
+            print("x_test: ", x_test)
+            print("y_test: ", y_test)
+
+            # # Podziel dane na x i y
+            # for row in first_part:
+            #     x = row.iloc[:-1]  # Get all elements except the last
+            #     y = row.iloc[-1]
+            #     x_test.append(x)
+            #     y_test.append(y)
+
+            #x_test = np.array(x_test)
+            #y_test = np.array(y_test)
+
+            #print()
+
 
 
         if data_set == 2:
@@ -72,7 +106,7 @@ class MyTestCase(unittest.TestCase):
                   learning_rate=learning_rate, momentum=momentum, shuffle=want_random, hops=hops,
                   validation_data=valid_data, debug=True)
         # confusion(net, test_data)
-        output = net.feedforward(test_x)
+        output = net.feedforward(x_test)
 
         # lista1 = prepare_type_list(output)
 
@@ -80,4 +114,4 @@ class MyTestCase(unittest.TestCase):
 
         # print("y", test_y)
 
-        test_logs(net, test_y, output)
+        test_logs(net, y_test, output)
