@@ -55,44 +55,25 @@ class Network(object):
             x_data = sigmoid(np.dot(weight, x_data) + bias)
         return x_data
 
-    def train(self, training_data, epochs, early_stopping_error, batch_size, learning_rate, momentum, shuffle, hops,
-              validation_data):
+    def train(self, training_data, epochs, early_stopping_error, learning_rate, momentum, shuffle, hops):
         error_log = ""
         train = list(training_data)
-        valid = list(validation_data)
-
 
         for epoch in range(epochs):
             if shuffle:
                 random.shuffle(train)
 
-            batch_list = []
-            for k in range(0, len(train), batch_size):
-                single_batch = train[k:k + batch_size]  # wycinamy od k do k+batch_size
-                batch_list.append(single_batch)
-
-            for single_batch in batch_list:
-                self.update(single_batch, learning_rate, momentum)
-
-            if early_stopping_error!= -1 and early_stopping_error >= self.epoch_error(train):
-                print("Desired precision reached, stopping training.")
+            self.update(train, learning_rate, momentum)
+            if early_stopping_error != -1 and early_stopping_error >= self.epoch_error(train):
+                print("Osiagnieto pozadany poziom bledu.")
                 with open('trainError.csv', 'w') as file:
                     file.write(error_log)
                 return
 
             if epoch % hops == 0:
-                if valid:
-                    test_results = [(np.argmax(self.feedforward(x)), np.argmax(y)) for (x, y) in valid]
-                    num_correct = sum(int(x == y) for (x, y) in test_results)
-                    current_precision = num_correct / len(valid)
-                    epoch_error = self.epoch_error(valid)
-                    print(epoch_error)
-                    print(f"Epoch {epoch} : {num_correct} / {len(valid)} Precision: {current_precision}")
-
-                else:
-                    print(f"Epoch {epoch} complete")
+                print(f"Epoka: {epoch}")
                 error_log += f"{epoch}, {self.epoch_error(train)}\n"
-        with open('trainError.csv', 'w') as file:
+        with open('data/trainError.csv', 'w') as file:
             file.write(error_log)
 
     def update(self, single_batch, learning_rate, momentum):

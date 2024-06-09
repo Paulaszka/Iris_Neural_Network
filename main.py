@@ -86,6 +86,7 @@ if mode == 1:
     net.train(train_data, epochs=early_stopping_epoch, precision=early_stopping_error, batch_size=10,
               learning_rate=learning_rate, momentum=momentum, shuffle=want_random, hops=hops,
               validation_data=None, debug=True)
+    net.save_network("data/network.pkl")
 
 
 # - - - TRYB TESTOWANIA - - -

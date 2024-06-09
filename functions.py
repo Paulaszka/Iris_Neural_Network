@@ -145,12 +145,12 @@ def test_logs(network, test, result):
         if all(not np.array_equal(i, existing) for existing in types_list):
             types_list.append(i)
 
-    result_bin = prepare_type_list(result)
+    # result_bin = prepare_type_list(result)
 
-    test_bin_bin = prepare_bin_type_list(test)
-    result_bin_bin = prepare_bin_type_list(result_bin)
+    # test_bin_bin = prepare_bin_type_list(test)
+    # result_bin_bin = prepare_bin_type_list(result_bin)
 
-    indiv_correct, correct, confusion_matrix, precision, recall, f_measure = calculate_to_logs(test_bin_bin, result_bin_bin, types_list)
+    indiv_correct, correct, confusion_matrix, precision, recall, f_measure = calculate_to_logs(test, result, types_list)
     global_error = 0
     error = 0
     with open("data/test_logs.txt", 'w') as plik:
@@ -161,13 +161,13 @@ def test_logs(network, test, result):
         for element in indiv_correct:
             plik.write(f"{element}\n")
         plik.write("Wyniki testowe - Wyniki przewidywane\n")
-        for test, pred in zip(test_bin_bin, result_bin_bin):
+        for test, pred in zip(test, result):
             plik.write(f"{test} - {pred}\n")
         plik.write("\nWagi: " + str(network.weights))
-        for i in range(len(test_bin_bin)):
-            # error = calculate_error(test, result)
-            # global_error += error
-            error += 1
+        # for i in range(len(test)):
+        #     # error = calculate_error(test, result)
+        #     # global_error += error
+        #     error += 1
         plik.write("\nBlad dla calej sieci: " + str(global_error))
         plik.write("\nMacierz pomylek: \n")
 
