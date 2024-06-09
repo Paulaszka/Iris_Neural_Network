@@ -1,7 +1,5 @@
 import numpy as np
-from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
-import network
 
 
 def prepare_type_list(y_pred):
@@ -53,70 +51,16 @@ def draw(precision, recall, f_measure):
     plt.show()
 
 
-def confusion(network1, test):
-    predicted_labels = []
-    true_labels = []
-    logs = "Wagi:\n" + str(network1.weights)
-    logs += "\n\nWejscia obciazajece:\n" + str(network1.biases)
-    general_error = 0.0
-    for index in range(len(test)):
-        test_row = test[index]
-        output = network1.feedforward(test_row[0])
-        expected = test_row[1]
-        true_labels.append(np.argmax(expected))
-        predicted_labels.append(np.argmax(output))
-        error = network1.calculate_error(expected, output)
-        general_error += error
-        logs += "Wzorzec wejsciowy:\n" + str(test_row[0]) + "\n"
-        logs += "Wzorzec wyjsciowy:\n" + str(expected) + "\n"
-        logs += "Uzyskane wyjscia:\n" + str(output) + "\n"
-        logs += "Wynik klasyfikacji: " + str(np.argmax(output) + 1) + "\n"
-        logs += "Blad wyjsciowy: " + str(error) + "\n\n"
-
-    logs += "Calkowity blad wyjsciowy: " + str(general_error) + "\n"
-
-    with open("stats.txt", 'a') as file:
-        file.write(logs)
-
-    matrix = confusion_matrix(true_labels, predicted_labels)
-    print("\nMacierz pomyłek:")
-    print(matrix)
-    recall = []
-    i = 0
-    for x in matrix:
-        tmp = 0
-        for a in x:
-            tmp += a
-        recall.append(x[i] / tmp)
-        i += 1
-    p = [np.array([matrix[x][y] for x in range(len(matrix))]) for y in range(len(matrix))]
-    p = np.array([np.sum(x) for x in p])
-    precision = []
-    for x, y in zip(np.diag(matrix), p):
-        if y == 0:
-            precision.append(0)
-        else:
-            precision.append(x / y)
-    f_measure = []
-    for x, y in zip(precision, recall):
-        if y == 0 or x == 0:
-            f_measure.append(0)
-        else:
-            f_measure.append(2 * x * y / (x + y))
-
-    print("\nPrecyzja (Precision):", precision)
-    print("Czułość (Recall):", recall)
-    print("Miara F (F-measure):", f_measure)
-
-
-def test_logs(network, test, result):
+def test_logs(network, test, result, global_error, sum_error):
     types_list = []
     for i in test:
         if all(not np.array_equal(i, existing) for existing in types_list):
             types_list.append(i)
 
     indiv_correct, correct, confusion_matrix, precision, recall, f_measure = calculate_to_logs(test, result, types_list)
-    global_error = 0
+    global_error = global_error / len(test)
+    for i in range(len(sum_error)):
+        sum_error[i] = sum_error[i] / len(test)
     with open("data/test_logs.txt", 'w') as plik:
         plik.write("WARTOSCI Z CZESCI TESTOWEJ\n")
         plik.write("POROWNANIE WYNIKOW\nLiczba poprawnie sklasyfikowanych elementow:\n")
@@ -134,6 +78,9 @@ def test_logs(network, test, result):
                 for waga in kolumna:
                     plik.write(f"{waga} ")
         plik.write("\nBlad dla calej sieci: " + str(global_error))
+        plik.write("\nBlad dla poszczegolych wyjsc: ")
+        for i in range(len(sum_error)):
+            plik.write(f"\nWyjscie {i}: {sum_error[i]}")
         plik.write("\nMacierz pomylek: \n")
 
         for i in range(len(confusion_matrix)):
@@ -169,9 +116,11 @@ def calculate_to_logs(y_test, y_pred, types_list):
         recall[i] = tp / (tp + fn) if (tp + fn) > 0 else 0
         f_measure[i] = 2 * (precision[i] * recall[i]) / (precision[i] + recall[i]) if (precision[i] + recall[
             i]) > 0 else 0
-
     return individual_correct_list, correct, confusion_matrix, precision, recall, f_measure
 
 
-def error_logs(network, test, results):
-    c=3
+def error_logs(expected, output):
+    errors = [0] * len(expected)
+    for i in range(len(expected)):
+        errors[i] = np.power(expected[i] - output[i], 2)
+    return errors
