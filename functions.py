@@ -53,36 +53,6 @@ def draw(precision, recall, f_measure):
     plt.show()
 
 
-def simulate(layers, train, valid, test):
-    bias = False
-    epochs = 1000
-    error = 1.0
-    sim_net = network.Network(layers, want_bias=(False if bias == 0 else True))
-    sim_net.train(train, epochs, error, 10, 0.9, 0.0, 1, 10, valid)
-    sim_net.plot_training_error()
-    confusion(sim_net, test)
-
-    sim_net = network.Network(layers, want_bias=(False if bias == 0 else True))
-    sim_net.train(train, epochs, error, 10, 0.6, 0.0, 1, 10, valid)
-    sim_net.plot_training_error()
-    confusion(sim_net, test)
-
-    sim_net = network.Network(layers, want_bias=(False if bias == 0 else True))
-    sim_net.train(train, epochs, error, 10, 0.2, 0.0, 1, 10, valid)
-    sim_net.plot_training_error()
-    confusion(sim_net, test)
-
-    sim_net = network.Network(layers, want_bias=(False if bias == 0 else True))
-    sim_net.train(train, epochs, error, 10, 0.9, 0.6, 1, 10, valid)
-    sim_net.plot_training_error()
-    confusion(sim_net, test)
-
-    sim_net = network.Network(layers, want_bias=(False if bias == 0 else True))
-    sim_net.train(train, epochs, error, 10, 0.2, 0.9, 1, 10, valid)
-    sim_net.plot_training_error()
-    confusion(sim_net, test)
-
-
 def confusion(network1, test):
     predicted_labels = []
     true_labels = []
@@ -145,14 +115,8 @@ def test_logs(network, test, result):
         if all(not np.array_equal(i, existing) for existing in types_list):
             types_list.append(i)
 
-    # result_bin = prepare_type_list(result)
-
-    # test_bin_bin = prepare_bin_type_list(test)
-    # result_bin_bin = prepare_bin_type_list(result_bin)
-
     indiv_correct, correct, confusion_matrix, precision, recall, f_measure = calculate_to_logs(test, result, types_list)
     global_error = 0
-    error = 0
     with open("data/test_logs.txt", 'w') as plik:
         plik.write("WARTOSCI Z CZESCI TESTOWEJ\n")
         plik.write("POROWNANIE WYNIKOW\nLiczba poprawnie sklasyfikowanych elementow:\n")
@@ -163,23 +127,23 @@ def test_logs(network, test, result):
         plik.write("Wyniki testowe - Wyniki przewidywane\n")
         for test, pred in zip(test, result):
             plik.write(f"{test} - {pred}\n")
-        plik.write("\nWagi: " + str(network.weights))
-        # for i in range(len(test)):
-        #     # error = calculate_error(test, result)
-        #     # global_error += error
-        #     error += 1
+        plik.write("Wagi:")
+        for wiersz in network.weights:
+            for kolumna in wiersz:
+                plik.write(f"\n")
+                for waga in kolumna:
+                    plik.write(f"{waga} ")
         plik.write("\nBlad dla calej sieci: " + str(global_error))
         plik.write("\nMacierz pomylek: \n")
 
         for i in range(len(confusion_matrix)):
-            plik.write(f"{confusion_matrix[i]} ")
+            plik.write(f"{confusion_matrix[i]} \n")
 
         for i in range(len(types_list)):
-            plik.write(f"\n Klasa {i}: Precision: {precision[i]} Recall: {recall[i]} F-measure: {f_measure[i]}")
+            plik.write(f"\nKlasa {i}: Precision: {precision[i]} Recall: {recall[i]} F-measure: {f_measure[i]}")
 
 
 def calculate_to_logs(y_test, y_pred, types_list):
-
     correct = 0
     types_list_bin_bin = prepare_bin_type_list(types_list)
     individual_correct_list = [0] * len(types_list_bin_bin)
@@ -207,3 +171,7 @@ def calculate_to_logs(y_test, y_pred, types_list):
             i]) > 0 else 0
 
     return individual_correct_list, correct, confusion_matrix, precision, recall, f_measure
+
+
+def error_logs(network, test, results):
+    c=3
