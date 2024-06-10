@@ -2,6 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+# - - - FUNKCJE AKTYWACJI - - -
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+
+def sigmoid_derivative(x):
+    return x * (1 - x)
+
+
+# - - - FORMATOWANIE / ZMIANA TYPU DANYCH - - -
 def prepare_type_list(y_pred):
     max_indices = []
     for row in y_pred:
@@ -39,18 +49,7 @@ def prepare_data(data):
     return combined_data
 
 
-def draw(precision, recall, f_measure):
-    fig, ax = plt.subplots()
-    names = ["precision", "recall", "f_measure"]
-    counts = [precision, recall, f_measure]
-    bar_labels = ['red', 'blue', 'orange']
-    bar_colors = ['tab:red', 'tab:blue', 'tab:orange']
-    ax.bar(names, counts, label=bar_labels, color=bar_colors)
-    ax.set_ylabel('Percentage')
-    ax.set_title('Results')
-    plt.show()
-
-
+# - - - FUNKCJE LOGUJACE - - -
 def test_logs(network, test, result, global_error, sum_error):
     types_list = []
     for i in test:

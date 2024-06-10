@@ -3,14 +3,6 @@ from functions import *
 import random
 
 
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-
-def sigmoid_derivative(x):
-    return x * (1 - x)
-
-
 class Network(object):
     def __init__(self, layer_sizes, want_bias):
         self.num_layers = len(layer_sizes)
@@ -32,26 +24,6 @@ class Network(object):
         self.velocity = []
         for w in self.weights:
             self.velocity.append(np.zeros(w.shape))
-
-    def plot_training_error(self):
-        with open('data/trainError.csv', 'r') as file:
-            data = file.readlines()
-        epochs = []
-        errors = []
-        for line in data:
-            epoch, error = map(float, line.strip().split(','))
-            epochs.append(epoch)
-            errors.append(error)
-        plt.plot(epochs, errors, marker='', linestyle='-')
-        plt.xlabel('Epoka')
-        plt.ylabel('Błąd')
-        plt.grid(True)
-        plt.show()
-
-    def feedforward(self, x_data):
-        for bias, weight in zip(self.biases, self.weights):
-            x_data = sigmoid(np.dot(weight, x_data) + bias)
-        return x_data
 
     def train(self, training_data, epochs, early_stopping_error, learning_rate, momentum, shuffle, hops):
         error_log = ""
@@ -111,6 +83,11 @@ class Network(object):
                 updated_biases.append(new_biases)
             self.biases = updated_biases
 
+    def feedforward(self, x_data):
+        for bias, weight in zip(self.biases, self.weights):
+            x_data = sigmoid(np.dot(weight, x_data) + bias)
+        return x_data
+
     def back_propagation(self, x, y):
         bias_gradient = []
         for b in self.biases:
@@ -148,6 +125,10 @@ class Network(object):
     def cost_derivative(output_activations, expected_output):
         return output_activations - expected_output
 
+    @staticmethod
+    def calculate_error(expected, output):
+        return np.mean(np.power(expected - output, 2))
+
     def save_network(self, filename):
         with open(filename, "wb") as file:
             pickle.dump(self, file)
@@ -157,6 +138,17 @@ class Network(object):
         with open(filename, "rb") as file:
             return pickle.load(file)
 
-    @staticmethod
-    def calculate_error(expected, output):
-        return np.mean(np.power(expected - output, 2))
+    def plot_training_error(self):
+        with open('data/trainError.csv', 'r') as file:
+            data = file.readlines()
+        epochs = []
+        errors = []
+        for line in data:
+            epoch, error = map(float, line.strip().split(','))
+            epochs.append(epoch)
+            errors.append(error)
+        plt.plot(epochs, errors, marker='', linestyle='-')
+        plt.xlabel('Epoka')
+        plt.ylabel('Błąd')
+        plt.grid(True)
+        plt.show()
