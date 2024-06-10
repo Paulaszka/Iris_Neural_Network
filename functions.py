@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 # - - - FUNKCJE AKTYWACJI - - -
@@ -9,6 +8,27 @@ def sigmoid(x):
 
 def sigmoid_derivative(x):
     return x * (1 - x)
+
+
+def test_network(net, test_data):
+    predicted_labels = []
+    true_labels = []
+    global_error = 0
+    sum_error = [0] * 3
+
+    for index in range(len(test_data)):
+        test_row = test_data[index]
+        output = net.feedforward(test_row[0])
+        expected = test_row[1]
+        true_labels.append(np.argmax(expected))
+        predicted_labels.append(np.argmax(output))
+        global_error += net.calculate_error(expected, output)
+        new_error = error_logs(expected, output)
+        for i in range(len(sum_error)):
+            sum_error[i] += new_error[i]
+
+    test_logs(net, true_labels, predicted_labels, global_error, sum_error)
+    net.plot_training_error()
 
 
 # - - - FORMATOWANIE / ZMIANA TYPU DANYCH - - -

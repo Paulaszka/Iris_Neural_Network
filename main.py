@@ -69,7 +69,7 @@ if mode == 1:
 
     learning_rate = -1
     momentum = -1
-    while not(0 <= learning_rate <= 1 and 0 <= momentum <= 1):
+    while not (0 <= learning_rate <= 1 and 0 <= momentum <= 1):
         learning_rate = float_input("\nPodaj wartosc wspolczynnika nauki: ")
         momentum = float_input("\nPodaj wartosc wspolczynnika momentum: ")
 
@@ -84,9 +84,8 @@ if mode == 1:
 
     net = network.Network(neuron_number_list, want_bias=(False if bias == 0 else True))
 
-    net.train(train_data, epochs=early_stopping_epoch, precision=early_stopping_error, batch_size=10,
-              learning_rate=learning_rate, momentum=momentum, shuffle=want_random, hops=hops,
-              validation_data=None, debug=True)
+    net.train(train_data, epochs=early_stopping_epoch, early_stopping_error=early_stopping_error,
+              learning_rate=learning_rate, momentum=momentum, shuffle=want_random, hops=hops)
     net.save_network("data/network.pkl")
 
 
