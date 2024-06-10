@@ -13,6 +13,7 @@ def sigmoid_derivative(x):
 def test_network(net, test_data):
     predicted_labels = []
     true_labels = []
+    output_array = []
     global_error = 0
     sum_error = [0] * 3
 
@@ -22,28 +23,18 @@ def test_network(net, test_data):
         expected = test_row[1]
         true_labels.append(np.argmax(expected))
         predicted_labels.append(np.argmax(output))
+        output_array.append(output)
         global_error += net.calculate_error(expected, output)
         new_error = error_logs(expected, output)
         for i in range(len(sum_error)):
             sum_error[i] += new_error[i]
 
-    test_logs(net, true_labels, predicted_labels, global_error, sum_error)
+    test_logs(net, true_labels, predicted_labels, global_error, sum_error, output_array, test_data)
     net.plot_training_error()
 
 
 # - - - FORMATOWANIE / ZMIANA TYPU DANYCH - - -
-def prepare_type_list(y_pred):
-    max_indices = []
-    for row in y_pred:
-        for sub_row in row:
-            lista = [0] * 3
-            max_index = sub_row.argmax()
-            lista[max_index] = 1
-            max_indices.append(lista)
-        return np.array(max_indices)
-
-
-def prepare_bin_type_list(y_pred):
+def prepare_data_012(y_pred):
     max_indices = []
     for row in y_pred:
         max_index = row.argmax()
@@ -51,7 +42,7 @@ def prepare_bin_type_list(y_pred):
     return np.array(max_indices)
 
 
-def prepare_data(data):
+def prepare_data_bin(data):
     data = np.array(data)
     target_values = []
     for genre in data:
@@ -70,7 +61,7 @@ def prepare_data(data):
 
 
 # - - - FUNKCJE LOGUJACE - - -
-def test_logs(network, test, result, global_error, sum_error):
+def test_logs(network, test, result, global_error, sum_error, output_array, test_data):
     types_list = []
     for i in test:
         if all(not np.array_equal(i, existing) for existing in types_list):
@@ -91,10 +82,10 @@ def test_logs(network, test, result, global_error, sum_error):
         for test, pred in zip(test, result):
             plik.write(f"{test} - {pred}\n")
         plik.write("\nWagi:")
-        for wiersz in network.weights:
-            for kolumna in wiersz:
+        for row in network.weights:
+            for col in row:
                 plik.write(f"\n")
-                for waga in kolumna:
+                for waga in col:
                     plik.write(f"{waga} ")
         plik.write("\n\nBlad dla calej sieci: " + str(global_error))
         plik.write("\n\nBlad dla poszczegolych wyjsc: ")
@@ -107,11 +98,20 @@ def test_logs(network, test, result, global_error, sum_error):
 
         for i in range(len(types_list)):
             plik.write(f"\nKlasa {i}: Precision: {precision[i]} Recall: {recall[i]} F-measure: {f_measure[i]}")
+        plik.write("\n\nWartosci wyjsciowe neuronow wyjsciowych dla kolejnych wzorcow\n")
+        for element in output_array:
+            plik.write(f"{element}")
+        plik.write("\n\nWzorzec wejsciowy + pozadany wzorzec odpowiedzi")
+        for row in test_data:
+            for col in row:
+                plik.write(f"\n")
+                for data in col:
+                    plik.write(f"{data} ")
 
 
 def calculate_to_logs(y_test, y_pred, types_list):
     correct = 0
-    types_list_bin_bin = prepare_bin_type_list(types_list)
+    types_list_bin_bin = prepare_data_012(types_list)
     individual_correct_list = [0] * len(types_list_bin_bin)
 
     for i in range(len(y_test)):

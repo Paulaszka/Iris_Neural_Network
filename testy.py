@@ -2,6 +2,7 @@ import network
 import unittest
 import pandas as pd
 from functions import *
+from numpy import *
 
 
 class MyTestCase(unittest.TestCase):
@@ -10,30 +11,51 @@ class MyTestCase(unittest.TestCase):
                              "1 - irysy\n"
                              "2 - autoenkoder\n"))
 
+        def prepare_data_auto(data):
+            data = np.array(data)
+            target_values = []
+            for genre in data:
+                if genre[-1] == 0:
+                    target_values.append([1, 0, 0, 0])
+                elif genre[-1] == 1:
+                    target_values.append([0, 1, 0, 0])
+                elif genre[-1] == 2:
+                    target_values.append([0, 0, 1, 0])
+                elif genre[-1] == 3:
+                    target_values.append([0, 0, 0, 1])
+            x_array = data[:, :-1]
+            target_values = np.array(target_values)
+            combined_data = []
+            for x, y in zip(x_array, target_values):
+                combined_data.append((x.reshape(-1, 1), y.reshape(-1, 1)))
+            return combined_data
+
         if data_set == 1:
             data_list = pd.read_csv('data/data.csv', header=None)
             data_list = data_list.sample(frac=1).reset_index(drop=True)
             train_raw = data_list.tail(120)
             test_raw = data_list.head(30)
             test_raw.to_csv('data/test.csv', index=False, header=False)
-            train_data = prepare_data(train_raw)
-            test_data = prepare_data(test_raw)
+            train_data = prepare_data_bin(train_raw)
+            test_data = prepare_data_bin(test_raw)
 
         if data_set == 2:
-            x_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-            y_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-            xy_data = []
-            for x, y in zip(x_data, y_data):
-                xy_data.append((x.reshape(-1, 1), y.reshape(-1, 1)))
-            test_data = xy_data
-            train_data = xy_data
+            train_data = [(array([[1], [0], [0], [0]]), array([[1], [0], [0], [0]])),
+                          (array([[0], [1], [0], [0]]), array([[0], [1], [0], [0]])),
+                          (array([[0], [0], [1], [0]]), array([[0], [0], [1], [0]])),
+                          (array([[0], [0], [0], [1]]), array([[0], [0], [0], [1]]))]
 
-        neuron_number_list = [4, 3]
+            test_data = [(array([[1], [0], [0], [0]]), array([[1], [0], [0], [0]])),
+                         (array([[0], [1], [0], [0]]), array([[0], [1], [0], [0]])),
+                         (array([[0], [0], [1], [0]]), array([[0], [0], [1], [0]])),
+                         (array([[0], [0], [0], [1]]), array([[0], [0], [0], [1]]))]
+
+        neuron_number_list = [4, 2, 4]
         bias = 1
-        early_stopping_epoch = 300
-        early_stopping_error = -1
+        early_stopping_epoch = 1000
+        early_stopping_error = 0.05
         learning_rate = 0.2
-        momentum = 0.6
+        momentum = 0.9
         want_random = 1
         hops = 10
 

@@ -2,6 +2,7 @@ from main_handler import *
 from functions import *
 import pandas as pd
 import network
+import numpy as np
 
 
 # - - - WYBOR ZBIORU DANYCH ORAZ TRYBU - - -
@@ -17,17 +18,19 @@ if data_set == 1:
     train_raw = data_list.tail(120)
     test_raw = data_list.head(30)
     test_raw.to_csv('data/test.csv', index=False, header=False)
-    train_data = prepare_data(train_raw)
-    test_data = prepare_data(test_raw)
+    train_data = prepare_data_bin(train_raw)
+    test_data = prepare_data_bin(test_raw)
 
 if data_set == 2:
-    x_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-    y_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-    xy_data = []
-    for x, y in zip(x_data, y_data):
-        xy_data.append((x.reshape(-1, 1), y.reshape(-1, 1)))
-    test_data = xy_data
-    train_data = xy_data
+    train_data = [(np.array([[1], [0], [0], [0]]), np.array([[1], [0], [0], [0]])),
+                  (np.array([[0], [1], [0], [0]]), np.array([[0], [1], [0], [0]])),
+                  (np.array([[0], [0], [1], [0]]), np.array([[0], [0], [1], [0]])),
+                  (np.array([[0], [0], [0], [1]]), np.array([[0], [0], [0], [1]]))]
+
+    test_data = [(np.array([[1], [0], [0], [0]]), np.array([[1], [0], [0], [0]])),
+                 (np.array([[0], [1], [0], [0]]), np.array([[0], [1], [0], [0]])),
+                 (np.array([[0], [0], [1], [0]]), np.array([[0], [0], [1], [0]])),
+                 (np.array([[0], [0], [0], [1]]), np.array([[0], [0], [0], [1]]))]
 
 print("Wybierz tryb\n"
       "1 - tryb nauki\n"
@@ -47,9 +50,15 @@ if mode == 1:
     elif data_mode == 2:
         layer_number = int_input("\nOkresl liczbe warstw ukrytych w sieci neuronowej.")
         neuron_number_list = [len(train_data[0][0])]
+        print(neuron_number_list)
         for i in range(layer_number):
             neuron_number_list.append(int(input("Podaj liczbe neuronow w " + str(i + 1) + " warstwie ukrytej: ")))
         neuron_number_list.append(len(train_data[0][1]))
+        print(neuron_number_list[-1])
+        print(neuron_number_list)
+
+        bias = int_input("\nPodaj wartość wejścia obciążającego (bias): ")
+        net = network.Network(neuron_number_list, want_bias=(False if bias == 0 else True))
 
     print("\nWybierz warunek stopu (czas zakonczenia nauki).\n"
           "1 - ilosc epok\n"
@@ -63,8 +72,6 @@ if mode == 1:
         early_stopping_epoch = int_input("\nPodaj liczbe epok: ")
     elif stop_type == 2:
         early_stopping_error = float_input("\nPodaj pozadany poziom bledu: ")
-
-    bias = int_input("\nPodaj wartość wejścia obciążającego (bias): ")
 
     learning_rate = -1
     momentum = -1
@@ -80,8 +87,6 @@ if mode == 1:
     want_random = one_two_input()
 
     # - - - NAUKA - - -
-
-    net = network.Network(neuron_number_list, want_bias=(False if bias == 0 else True))
 
     net.train(train_data, epochs=early_stopping_epoch, early_stopping_error=early_stopping_error,
               learning_rate=learning_rate, momentum=momentum, shuffle=want_random, hops=hops)

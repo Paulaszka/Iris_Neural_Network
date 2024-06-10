@@ -1,6 +1,7 @@
 import pickle
 from functions import *
 import random
+import matplotlib.pyplot as plt
 
 
 class Network(object):
@@ -21,29 +22,30 @@ class Network(object):
         for x, y in zip(self.sizes[:-1], self.sizes[1:]):
             self.weights.append(np.random.uniform(-1, 1, (y, x)))
 
-        self.velocity = []
+        self.delta_wi = []
         for w in self.weights:
-            self.velocity.append(np.zeros(w.shape))
+            self.delta_wi.append(np.zeros(w.shape))
 
     def train(self, training_data, epochs, early_stopping_error, learning_rate, momentum, shuffle, hops):
         error_log = ""
         train = list(training_data)
+        print(train)
 
         for epoch in range(epochs):
-            if shuffle:
+            if shuffle == 1:
                 random.shuffle(train)
 
             self.update(train, learning_rate, momentum)
             if early_stopping_error != -1 and early_stopping_error >= self.epoch_error(train):
                 print("Osiagnieto pozadany poziom bledu.")
-                with open('trainError.csv', 'w') as file:
+                with open('train_logs.csv', 'w') as file:
                     file.write(error_log)
                 return
 
             if epoch % hops == 0:
                 print(f"Epoka: {epoch}")
                 error_log += f"{epoch}, {self.epoch_error(train)}\n"
-        with open('data/trainError.csv', 'w') as file:
+        with open('data/train_logs.csv', 'w') as file:
             file.write(error_log)
 
     def update(self, single_batch, learning_rate, momentum):
@@ -64,15 +66,23 @@ class Network(object):
             for i in range(len(weight_gradient)):
                 weight_gradient[i] += weight_gradient_delta[i]
 
-        new_velocity = []
-        for v, gw in zip(self.velocity, weight_gradient):
-            updated_v = momentum * v - (learning_rate / len(single_batch)) * gw
-            new_velocity.append(updated_v)
-        self.velocity = new_velocity
+        new_delta_wi = []
+        flag = True
+        counter = 0
+        for i, (wi, gw) in enumerate(zip(self.delta_wi, weight_gradient)):
+            if flag:
+                updated_wi = momentum * 0 - (learning_rate / len(single_batch)) * gw
+                counter += 1
+                if counter == 2:
+                    flag = False
+            elif not flag:
+                updated_wi = momentum * (self.weights[i] - self.weights[i-1]) - (learning_rate / len(single_batch)) * gw
+            new_delta_wi.append(updated_wi)
+        self.delta_wi = new_delta_wi
 
         updated_weights = []
-        for w, v in zip(self.weights, self.velocity):
-            new_weights = w + v
+        for w, wi in zip(self.weights, self.delta_wi):
+            new_weights = w + wi
             updated_weights.append(new_weights)
         self.weights = updated_weights
 
@@ -139,7 +149,7 @@ class Network(object):
             return pickle.load(file)
 
     def plot_training_error(self):
-        with open('data/trainError.csv', 'r') as file:
+        with open('data/train_logs.csv', 'r') as file:
             data = file.readlines()
         epochs = []
         errors = []
@@ -147,7 +157,7 @@ class Network(object):
             epoch, error = map(float, line.strip().split(','))
             epochs.append(epoch)
             errors.append(error)
-        plt.plot(epochs, errors, marker='', linestyle='-')
+        plt.plot(epochs, errors, marker='', linestyle='-', color='#fa39b6')
         plt.xlabel('Epoka')
         plt.ylabel('Błąd')
         plt.grid(True)
