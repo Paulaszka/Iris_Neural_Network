@@ -1,6 +1,5 @@
 from main_handler import *
 from functions import *
-import random
 import pandas as pd
 import network
 
@@ -13,12 +12,13 @@ print("Wybierz zestaw danych\n"
 data_set = one_two_input()
 
 if data_set == 1:
-    train_raw = pd.read_csv('data/data.csv', header=None)
-    test_raw = pd.read_csv('data/test.csv', header=None)
+    data_list = pd.read_csv('data/data.csv', header=None)
+    data_list = data_list.sample(frac=1).reset_index(drop=True)
+    train_raw = data_list.tail(120)
+    test_raw = data_list.head(30)
+    test_raw.to_csv('data/test.csv', index=False, header=False)
     train_data = prepare_data(train_raw)
     test_data = prepare_data(test_raw)
-    valid = random.choices(train_data, k=int(len(train_data) / 3))
-    random.shuffle(valid)
 
 if data_set == 2:
     x_data = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
@@ -28,7 +28,6 @@ if data_set == 2:
         xy_data.append((x.reshape(-1, 1), y.reshape(-1, 1)))
     test_data = xy_data
     train_data = xy_data
-    valid = xy_data
 
 print("Wybierz tryb\n"
       "1 - tryb nauki\n"
@@ -58,7 +57,7 @@ if mode == 1:
     stop_type = one_two_input()
 
     early_stopping_epoch = 1000
-    early_stopping_error = -1.0  # TODO sprawdzic czy ten blad jest okej
+    early_stopping_error = -1.0
 
     if stop_type == 1:
         early_stopping_epoch = int_input("\nPodaj liczbe epok: ")
@@ -92,8 +91,5 @@ if mode == 1:
 # - - - TRYB TESTOWANIA - - -
 
 elif mode == 2:
-    data_list_test = pd.read_csv("data/test.csv")
-    net = network.Network.load_network("data/network.pkl")
-
-    combined_test_data = 1  # TODO testowanie
-    net.plot_training_error()
+    net2 = network.Network.load_network("data/network.pkl")
+    test_network(net2, test_data)
