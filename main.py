@@ -2,6 +2,7 @@ from main_handler import *
 from functions import *
 import random
 import pandas as pd
+import network
 
 
 # - - - WYBOR ZBIORU DANYCH ORAZ TRYBU - - -
@@ -68,7 +69,7 @@ if mode == 1:
 
     learning_rate = -1
     momentum = -1
-    while learning_rate < 0 and momentum < 0:
+    while not(0 <= learning_rate <= 1 and 0 <= momentum <= 1):
         learning_rate = float_input("\nPodaj wartosc wspolczynnika nauki: ")
         momentum = float_input("\nPodaj wartosc wspolczynnika momentum: ")
 
@@ -97,4 +98,3 @@ elif mode == 2:
 
     combined_test_data = 1  # TODO testowanie
     net.plot_training_error()
-    confusion(net, combined_test_data)

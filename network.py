@@ -8,8 +8,7 @@ def sigmoid(x):
 
 
 def sigmoid_derivative(x):
-    f = sigmoid(x)
-    return f * (1 - f)
+    return x * (1 - x)
 
 
 class Network(object):
@@ -129,12 +128,12 @@ class Network(object):
             weighted_layer.append(weighted_neuron)
             activation = sigmoid(weighted_neuron)
             activations.append(activation)
-        delta = self.cost_derivative(activations[-1], y) * sigmoid_derivative(weighted_layer[-1])
+        delta = self.cost_derivative(activations[-1], y) * sigmoid_derivative(activations[-1])
         bias_gradient[-1] = delta
         weight_gradient[-1] = np.dot(delta, activations[-2].transpose())
         for layer in range(2, self.num_layers):
-            weighted_neuron = weighted_layer[-layer]
-            delta = np.dot(self.weights[-layer + 1].transpose(), delta) * sigmoid_derivative(weighted_neuron)
+            activation = activations[-layer]
+            delta = np.dot(self.weights[-layer + 1].transpose(), delta) * sigmoid_derivative(activation)
             bias_gradient[-layer] = delta
             weight_gradient[-layer] = np.dot(delta, activations[-layer - 1].transpose())
         return bias_gradient, weight_gradient
