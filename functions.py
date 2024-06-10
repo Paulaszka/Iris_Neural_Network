@@ -63,25 +63,25 @@ def test_logs(network, test, result, global_error, sum_error):
         sum_error[i] = sum_error[i] / len(test)
     with open("data/test_logs.txt", 'w') as plik:
         plik.write("WARTOSCI Z CZESCI TESTOWEJ\n")
-        plik.write("POROWNANIE WYNIKOW\nLiczba poprawnie sklasyfikowanych elementow:\n")
+        plik.write("POROWNANIE WYNIKOW\n\nLiczba poprawnie sklasyfikowanych elementow:\n")
         plik.write(str(correct))
-        plik.write("\nZ podzialem na klasy:\n")
+        plik.write("\n\nZ podzialem na klasy:\n")
         for element in indiv_correct:
             plik.write(f"{element}\n")
-        plik.write("Wyniki testowe - Wyniki przewidywane\n")
+        plik.write("\nWyniki testowe - Wyniki przewidywane\n")
         for test, pred in zip(test, result):
             plik.write(f"{test} - {pred}\n")
-        plik.write("Wagi:")
+        plik.write("\nWagi:")
         for wiersz in network.weights:
             for kolumna in wiersz:
                 plik.write(f"\n")
                 for waga in kolumna:
                     plik.write(f"{waga} ")
-        plik.write("\nBlad dla calej sieci: " + str(global_error))
-        plik.write("\nBlad dla poszczegolych wyjsc: ")
+        plik.write("\n\nBlad dla calej sieci: " + str(global_error))
+        plik.write("\n\nBlad dla poszczegolych wyjsc: ")
         for i in range(len(sum_error)):
             plik.write(f"\nWyjscie {i}: {sum_error[i]}")
-        plik.write("\nMacierz pomylek: \n")
+        plik.write("\n\nMacierz pomylek: \n")
 
         for i in range(len(confusion_matrix)):
             plik.write(f"{confusion_matrix[i]} \n")
