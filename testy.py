@@ -13,7 +13,10 @@ class MyTestCase(unittest.TestCase):
 
         if data_set == 1:
             train_raw = pd.read_csv('data/data.csv', header=None)
-            test_raw = pd.read_csv('data/test.csv', header=None)
+            to_shuffle = pd.read_csv('data/data.csv', header=None)
+            to_shuffle = to_shuffle.sample(frac=1).reset_index(drop=True)
+            test_raw = to_shuffle.head(30)
+            test_raw.to_csv('data/test.csv', index=False, header=False)
             train_data = prepare_data(train_raw)
             test_data = prepare_data(test_raw)
 
@@ -53,11 +56,8 @@ class MyTestCase(unittest.TestCase):
             predicted_labels.append(np.argmax(output))
             global_error += net.calculate_error(expected, output)
             new_error = error_logs(expected, output)
-            print(new_error)
             for i in range(len(sum_error)):
                 sum_error[i] += new_error[i]
-        print("sum")
-        print(sum_error)
 
 
         test_logs(net, true_labels, predicted_labels, global_error, sum_error)

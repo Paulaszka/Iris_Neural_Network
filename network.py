@@ -35,7 +35,7 @@ class Network(object):
             self.velocity.append(np.zeros(w.shape))
 
     def plot_training_error(self):
-        with open('trainError.csv', 'r') as file:
+        with open('data/trainError.csv', 'r') as file:
             data = file.readlines()
         epochs = []
         errors = []
