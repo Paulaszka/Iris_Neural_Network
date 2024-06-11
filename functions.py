@@ -19,7 +19,7 @@ def test_network(net, test_data, types_number):
     sum_error = [0] * types_number
     for index in range(len(test_data)):
         test_row = test_data[index]
-        output = net.feedforward(test_row[0])
+        output = net.forward_propagation(test_row[0])
         expected = test_row[1]
         true_labels.append(np.argmax(expected))
         predicted_labels.append(np.argmax(output))

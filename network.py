@@ -92,7 +92,7 @@ class Network(object):
                 updated_biases.append(new_biases)
             self.biases = updated_biases
 
-    def feedforward(self, x_data):
+    def forward_propagation(self, x_data):
         for bias, weight in zip(self.biases, self.weights):
             x_data = sigmoid(np.dot(weight, x_data) + bias)
         return x_data
@@ -127,7 +127,7 @@ class Network(object):
     def epoch_error(self, train_data):
         error = 0
         for x, y in train_data:
-            error += self.calculate_error(self.feedforward(x), y)
+            error += self.calculate_error(self.forward_propagation(x), y)
         return error / len(train_data)
 
     @staticmethod
