@@ -32,7 +32,6 @@ if data_set == 2:
                  (np.array([[0], [1], [0], [0]]), np.array([[0], [1], [0], [0]])),
                  (np.array([[0], [0], [1], [0]]), np.array([[0], [0], [1], [0]])),
                  (np.array([[0], [0], [0], [1]]), np.array([[0], [0], [0], [1]]))]
-
     types_number = 4
 
 print("Wybierz tryb\n"
@@ -48,10 +47,10 @@ if mode == 1:
           "2 - Podanie parametrow w konsoli.")
     data_mode = one_two_input()
     if data_mode == 1:
-        net = network.Network.load_network("data/network.pkl")  # TODO sprawdzic czy wczytywanie dziala
+        net = network.Network.load_network("data/network.pkl")
 
     elif data_mode == 2:
-        layer_number = int_input("\nOkresl liczbe warstw ukrytych w sieci neuronowej.")
+        layer_number = int_input("\nOkresl liczbe warstw ukrytych w sieci neuronowej: ")
         neuron_number_list = [len(train_data[0][0])]
         print(neuron_number_list)
         for i in range(layer_number):

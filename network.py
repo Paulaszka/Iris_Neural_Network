@@ -37,7 +37,7 @@ class Network(object):
             self.update(train, learning_rate, momentum)
             if early_stopping_error != -1 and early_stopping_error >= self.epoch_error(train):
                 print("Osiagnieto pozadany poziom bledu.")
-                with open('train_logs.csv', 'w') as file:
+                with open('data/train_logs.csv', 'w') as file:
                     file.write(error_log)
                 return
 
