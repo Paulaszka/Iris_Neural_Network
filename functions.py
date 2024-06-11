@@ -10,13 +10,23 @@ def sigmoid_derivative(x):
     return x * (1 - x)
 
 
-def test_network(net, test_data):
+def prepare_type_list(y_pred):
+    max_indices = []
+    for row in y_pred:
+        for sub_row in row:
+            lista = [0] * 3
+            max_index = sub_row.argmax()
+            lista[max_index] = 1
+            max_indices.append(lista)
+        return np.array(max_indices)
+
+
+def test_network(net, test_data, types_list):
     predicted_labels = []
     true_labels = []
     output_array = []
     global_error = 0
-    sum_error = [0] * 3
-
+    sum_error = [0] * types_list
     for index in range(len(test_data)):
         test_row = test_data[index]
         output = net.feedforward(test_row[0])

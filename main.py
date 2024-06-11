@@ -20,6 +20,7 @@ if data_set == 1:
     test_raw.to_csv('data/test.csv', index=False, header=False)
     train_data = prepare_data_bin(train_raw)
     test_data = prepare_data_bin(test_raw)
+    types_number = 3
 
 if data_set == 2:
     train_data = [(np.array([[1], [0], [0], [0]]), np.array([[1], [0], [0], [0]])),
@@ -31,6 +32,8 @@ if data_set == 2:
                  (np.array([[0], [1], [0], [0]]), np.array([[0], [1], [0], [0]])),
                  (np.array([[0], [0], [1], [0]]), np.array([[0], [0], [1], [0]])),
                  (np.array([[0], [0], [0], [1]]), np.array([[0], [0], [0], [1]]))]
+
+    types_number = 4
 
 print("Wybierz tryb\n"
       "1 - tryb nauki\n"
@@ -97,4 +100,4 @@ if mode == 1:
 
 elif mode == 2:
     net2 = network.Network.load_network("data/network.pkl")
-    test_network(net2, test_data)
+    test_network(net2, test_data, types_number)

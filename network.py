@@ -29,7 +29,6 @@ class Network(object):
     def train(self, training_data, epochs, early_stopping_error, learning_rate, momentum, shuffle, hops):
         error_log = ""
         train = list(training_data)
-        print(train)
 
         for epoch in range(epochs):
             if shuffle == 1:
